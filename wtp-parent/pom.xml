@@ -17,7 +17,7 @@
 
   <groupId>org.eclipse</groupId>
   <artifactId>wtp-parent</artifactId>
-  <version>3.5.0-SNAPSHOT</version>
+  <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -25,16 +25,15 @@
     <tycho-extras.version>0.19.0-SNAPSHOT</tycho-extras.version>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
 
-    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.3</platform-repo.url>
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.4milestones</platform-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.9/</emf-repo.url>
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
-    <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.9/</emf-repo.url>
     <gef-repo.url>http://download.eclipse.org/tools/gef/updates/milestones/</gef-repo.url>
     <dtp-repo.url>http://download.eclipse.org/datatools/updates</dtp-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
     <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository/</orbit-repo.url>
-    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/updates/</eclipselink-repo.url>
+    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
     <jetty-repo.url>http://www.eclipse.org/external/jetty/updates/jetty-bundles-8.x/8.1.3.v20120522/</jetty-repo.url>
   </properties>
 
