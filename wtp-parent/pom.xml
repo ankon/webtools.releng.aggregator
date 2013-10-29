@@ -21,8 +21,8 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho.version>0.19.0-SNAPSHOT</tycho.version>
-    <tycho-extras.version>0.19.0-SNAPSHOT</tycho-extras.version>
+    <tycho.version>0.19.0</tycho.version>
+    <tycho-extras.version>0.19.0</tycho-extras.version>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
 
     <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.4milestones</platform-repo.url>
@@ -181,6 +181,13 @@
           <version>${tycho.version}</version>
           <configuration>
             <strictBinIncludes>false</strictBinIncludes>
+
+            <!--
+                Valid options: error, warning, and ignore
+                jgit.dirtyWorkingTree checking was added as of Tycho 0.19.0
+                see: https://bugs.eclipse.org/419030
+            -->
+            <jgit.dirtyWorkingTree>ignore</jgit.dirtyWorkingTree>
           </configuration>
         </plugin>
         <plugin>
