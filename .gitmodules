@@ -1,81 +1,81 @@
 [submodule "webtools.common"]
 	path = webtools.common
-	url = ../webtools-common/webtools.common
+	url = ../webtools-common/webtools.common.git
 [submodule "webtools.common.snippets"]
 	path = webtools.common.snippets
-	url = ../webtools-common/webtools.common.snippets
+	url = ../webtools-common/webtools.common.snippets.git
 [submodule "webtools.common.fproj"]
 	path = webtools.common.fproj
-	url = ../webtools-common/webtools.common.fproj
+	url = ../webtools-common/webtools.common.fproj.git
 [submodule "webtools.common.tests"]
 	path = webtools.common.tests
-	url = ../webtools-common/webtools.common.tests
+	url = ../webtools-common/webtools.common.tests.git
 [submodule "webtools.sourceediting"]
 	path = webtools.sourceediting
-	url = ../sourceediting/webtools.sourceediting
+	url = ../sourceediting/webtools.sourceediting.git
 [submodule "webtools.jsdt.core"]
 	path = webtools.jsdt.core
-	url = ../jsdt/webtools.jsdt.core
+	url = ../jsdt/webtools.jsdt.core.git
 [submodule "webtools.jsdt.debug"]
 	path = webtools.jsdt.debug
-	url = ../jsdt/webtools.jsdt.debug
+	url = ../jsdt/webtools.jsdt.debug.git
 [submodule "webtools.jsdt.tests"]
 	path = webtools.jsdt.tests
-	url = ../jsdt/webtools.jsdt.tests
+	url = ../jsdt/webtools.jsdt.tests.git
 [submodule "webtools.releng"]
 	path = webtools.releng
-	url = ../webtools/webtools.releng
+	url = ../webtools/webtools.releng.git
 [submodule "webtools.servertools"]
 	path = webtools.servertools
-	url = ../servertools/webtools.servertools
+	url = ../servertools/webtools.servertools.git
 [submodule "webtools.servertools.tests"]
 	path = webtools.servertools.tests
-	url = ../servertools/webtools.servertools.tests
+	url = ../servertools/webtools.servertools.tests.git
 [submodule "webtools.javaee"]
 	path = webtools.javaee
-	url = ../jeetools/webtools.javaee
+	url = ../jeetools/webtools.javaee.git
 [submodule "webtools.servertools.docs"]
 	path = webtools.servertools.docs
-	url = ../servertools/webtools.servertools.docs
+	url = ../servertools/webtools.servertools.docs.git
 [submodule "webtools.ejb"]
 	path = webtools.ejb
-	url = ../ejb/webtools.ejb
+	url = ../ejb/webtools.ejb.git
 [submodule "webtools.webservices"]
 	path = webtools.webservices
-	url = ../webservices/webtools.webservices
+	url = ../webservices/webtools.webservices.git
 [submodule "webtools.jsf.docs"]
 	path = webtools.jsf.docs
-	url = ../jsf/webtools.jsf.docs
+	url = ../jsf/webtools.jsf.docs.git
 [submodule "webtools.jsf"]
 	path = webtools.jsf
-	url = ../jsf/webtools.jsf
+	url = ../jsf/webtools.jsf.git
 [submodule "webtools.javaee.tests"]
 	path = webtools.javaee.tests
-	url = ../jeetools/webtools.javaee.tests
+	url = ../jeetools/webtools.javaee.tests.git
 [submodule "webtools.jsf.tests"]
 	path = webtools.jsf.tests
-	url = ../jsf/webtools.jsf.tests
+	url = ../jsf/webtools.jsf.tests.git
 [submodule "webtools.webservices.axis2"]
 	path = webtools.webservices.axis2
-	url = ../webservices/webtools.webservices.axis2
+	url = ../webservices/webtools.webservices.axis2.git
 [submodule "webtools.webservices.jaxws"]
 	path = webtools.webservices.jaxws
-	url = ../webservices/webtools.webservices.jaxws
+	url = ../webservices/webtools.webservices.jaxws.git
 [submodule "webtools.sourceediting.tests"]
 	path = webtools.sourceediting.tests
-	url = ../sourceediting/webtools.sourceediting.tests
+	url = ../sourceediting/webtools.sourceediting.tests.git
 [submodule "webtools.sourceediting.xpath"]
 	path = webtools.sourceediting.xpath
-	url = ../sourceediting/webtools.sourceediting.xpath
+	url = ../sourceediting/webtools.sourceediting.xpath.git
 [submodule "webtools.sourceediting.xpath.tests"]
 	path = webtools.sourceediting.xpath.tests
-	url = ../sourceediting/webtools.sourceediting.xpath.tests
+	url = ../sourceediting/webtools.sourceediting.xpath.tests.git
 [submodule "webtools.sourceediting.xsl"]
 	path = webtools.sourceediting.xsl
-	url = ../sourceediting/webtools.sourceediting.xsl
+	url = ../sourceediting/webtools.sourceediting.xsl.git
 [submodule "webtools.sourceediting.xsl.tests"]
 	path = webtools.sourceediting.xsl.tests
-	url = ../sourceediting/webtools.sourceediting.xsl.tests
+	url = ../sourceediting/webtools.sourceediting.xsl.tests.git
 [submodule "webtools.dali"]
 	path = webtools.dali
-	url = ../dali/webtools.dali
+	url = ../dali/webtools.dali.git
