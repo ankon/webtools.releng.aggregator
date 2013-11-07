@@ -1,81 +1,81 @@
 [submodule "webtools.common"]
 	path = webtools.common
-	url = ssh://git.eclipse.org/gitroot/webtools-common/webtools.common.git
+	url = ../webtools-common/webtools.common
 [submodule "webtools.common.snippets"]
 	path = webtools.common.snippets
-	url = ssh://git.eclipse.org/gitroot/webtools-common/webtools.common.snippets.git
+	url = ../webtools-common/webtools.common.snippets
 [submodule "webtools.common.fproj"]
 	path = webtools.common.fproj
-	url = ssh://git.eclipse.org/gitroot/webtools-common/webtools.common.fproj.git
+	url = ../webtools-common/webtools.common.fproj
 [submodule "webtools.common.tests"]
 	path = webtools.common.tests
-	url = ssh://git.eclipse.org/gitroot/webtools-common/webtools.common.tests.git
+	url = ../webtools-common/webtools.common.tests
 [submodule "webtools.sourceediting"]
 	path = webtools.sourceediting
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.git
+	url = ../sourceediting/webtools.sourceediting
 [submodule "webtools.jsdt.core"]
 	path = webtools.jsdt.core
-	url = ssh://git.eclipse.org/gitroot/jsdt/webtools.jsdt.core.git
+	url = ../jsdt/webtools.jsdt.core
 [submodule "webtools.jsdt.debug"]
 	path = webtools.jsdt.debug
-	url = ssh://git.eclipse.org/gitroot/jsdt/webtools.jsdt.debug.git
+	url = ../jsdt/webtools.jsdt.debug
 [submodule "webtools.jsdt.tests"]
 	path = webtools.jsdt.tests
-	url = ssh://git.eclipse.org/gitroot/jsdt/webtools.jsdt.tests.git
+	url = ../jsdt/webtools.jsdt.tests
 [submodule "webtools.releng"]
 	path = webtools.releng
-	url = ssh://git.eclipse.org/gitroot/webtools/webtools.releng.git
+	url = ../webtools/webtools.releng
 [submodule "webtools.servertools"]
 	path = webtools.servertools
-	url = ssh://git.eclipse.org/gitroot/servertools/webtools.servertools.git
+	url = ../servertools/webtools.servertools
 [submodule "webtools.servertools.tests"]
 	path = webtools.servertools.tests
-	url = ssh://git.eclipse.org/gitroot/servertools/webtools.servertools.tests.git
+	url = ../servertools/webtools.servertools.tests
 [submodule "webtools.javaee"]
 	path = webtools.javaee
-	url = ssh://git.eclipse.org/gitroot/jeetools/webtools.javaee.git
+	url = ../jeetools/webtools.javaee
 [submodule "webtools.servertools.docs"]
 	path = webtools.servertools.docs
-	url = ssh://git.eclipse.org/gitroot/servertools/webtools.servertools.docs.git
+	url = ../servertools/webtools.servertools.docs
 [submodule "webtools.ejb"]
 	path = webtools.ejb
-	url = ssh://git.eclipse.org/gitroot/ejb/webtools.ejb.git
+	url = ../ejb/webtools.ejb
 [submodule "webtools.webservices"]
 	path = webtools.webservices
-	url = ssh://git.eclipse.org/gitroot/webservices/webtools.webservices.git
+	url = ../webservices/webtools.webservices
 [submodule "webtools.jsf.docs"]
 	path = webtools.jsf.docs
-	url = ssh://git.eclipse.org/gitroot/jsf/webtools.jsf.docs.git
+	url = ../jsf/webtools.jsf.docs
 [submodule "webtools.jsf"]
 	path = webtools.jsf
-	url = ssh://git.eclipse.org/gitroot/jsf/webtools.jsf.git
+	url = ../jsf/webtools.jsf
 [submodule "webtools.javaee.tests"]
 	path = webtools.javaee.tests
-	url = ssh://git.eclipse.org/gitroot/jeetools/webtools.javaee.tests.git
+	url = ../jeetools/webtools.javaee.tests
 [submodule "webtools.jsf.tests"]
 	path = webtools.jsf.tests
-	url = ssh://git.eclipse.org/gitroot/jsf/webtools.jsf.tests.git
+	url = ../jsf/webtools.jsf.tests
 [submodule "webtools.webservices.axis2"]
 	path = webtools.webservices.axis2
-	url = ssh://git.eclipse.org/gitroot/webservices/webtools.webservices.axis2.git
+	url = ../webservices/webtools.webservices.axis2
 [submodule "webtools.webservices.jaxws"]
 	path = webtools.webservices.jaxws
-	url = ssh://git.eclipse.org/gitroot/webservices/webtools.webservices.jaxws.git
+	url = ../webservices/webtools.webservices.jaxws
 [submodule "webtools.sourceediting.tests"]
 	path = webtools.sourceediting.tests
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.tests.git
+	url = ../sourceediting/webtools.sourceediting.tests
 [submodule "webtools.sourceediting.xpath"]
 	path = webtools.sourceediting.xpath
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.xpath.git
+	url = ../sourceediting/webtools.sourceediting.xpath
 [submodule "webtools.sourceediting.xpath.tests"]
 	path = webtools.sourceediting.xpath.tests
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.xpath.tests.git
+	url = ../sourceediting/webtools.sourceediting.xpath.tests
 [submodule "webtools.sourceediting.xsl"]
 	path = webtools.sourceediting.xsl
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.xsl.git
+	url = ../sourceediting/webtools.sourceediting.xsl
 [submodule "webtools.sourceediting.xsl.tests"]
 	path = webtools.sourceediting.xsl.tests
-	url = ssh://git.eclipse.org/gitroot/sourceediting/webtools.sourceediting.xsl.tests.git
+	url = ../sourceediting/webtools.sourceediting.xsl.tests
 [submodule "webtools.dali"]
 	path = webtools.dali
-	url = ssh://git.eclipse.org/gitroot/dali/webtools.dali.git
+	url = ../dali/webtools.dali
