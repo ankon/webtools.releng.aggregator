@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature id="org.eclipse.wst.jsdt_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.wst.server_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.common_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wtp.releng.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wtp.releng.tools.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.web_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.xml_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.xsl_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+    <category-def
+        name="Web Tools Platform Tests (WTP Tests) @buildversionid@"
+        label="Web Tools Platform Tests (WTP Tests) @buildversionid@">
+        <description>
+            These features provide Unit tests for WTP. WTP Committers, or others testing WTP, will need these in at least
+            their PDE Targets.
+        </description>
+    </category-def>
+</site>

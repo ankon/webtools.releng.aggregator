@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+
+    <feature id="org.eclipse.jst.common.fproj.enablement.jdt">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.common.fproj.enablement.jdt.sdk">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.web_ui.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.web_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.enterprise_ui.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jsf.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.enterprise_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jsf_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jst.ws.jaxws_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.jaxws.dom_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.cxf_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.jsf.apache.trinidad.tagsupport_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.axis2tools_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.webpageeditor_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.axis2tools.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.webpageeditor.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.jaxws.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.jaxws.dom.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.jsf.apache.trinidad.tagsupport.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.ws.cxf.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jst.server_ui.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.server_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.server_adapters.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.server_adapters.sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.server_adapters.ext.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jst.server_adapters.ext.sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+
+
+    <category-def
+        name="Web Tools Platform (WTP) @buildversionid@"
+        label="Web Tools Platform (WTP) @buildversionid@">
+        <description>
+            These features provide functionality with the executable code only and are recommended for most users.
+        </description>
+    </category-def>
+    <category-def
+        name="Web Tools Platform SDK (WTP SDK) @buildversionid@"
+        label="Web Tools Platform SDK (WTP SDK) @buildversionid@">
+        <description>
+            These features provide functionality with the executable code and the source code and are recommended for those
+            extending or debugging
+            WTP.
+        </description>
+    </category-def>
+</site>

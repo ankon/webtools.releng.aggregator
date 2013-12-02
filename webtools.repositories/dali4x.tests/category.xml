@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+
+    <feature id="org.eclipse.jpt.common.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.jpa.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.jpa.eclipselink.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.jaxb.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.jaxb.eclipselink.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.jpadiagrameditor.tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
+
+    <category-def
+        name="Web Tools Platform Tests (WTP Tests) @buildversionid@"
+        label="Web Tools Platform Tests (WTP Tests) @buildversionid@">
+        <description>
+            These features provide Unit tests for WTP. WTP Committers, or others testing WTP, will need these in at least
+            their PDE Targets.
+        </description>
+    </category-def>
+</site>

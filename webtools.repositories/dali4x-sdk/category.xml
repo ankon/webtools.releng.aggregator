@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <feature id="org.eclipse.jpt.common_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.common.eclipselink_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpa_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpa.eclipselink_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jaxb_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jaxb.eclipselink_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.dbws.eclipselink_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpadiagrameditor_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
+
+    <feature id="org.eclipse.jpt.common.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.common.eclipselink.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpa.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpa.eclipselink.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jaxb.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jaxb.eclipselink.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.dbws.eclipselink.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.jpt.jpadiagrameditor.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+
+
+
+
+    <category-def
+        name="Web Tools Platform (WTP) @buildversionid@"
+        label="Web Tools Platform (WTP) @buildversionid@">
+        <description>
+            These features provide functionality with the executable code only and are recommended for most users.
+        </description>
+    </category-def>
+    <category-def
+        name="Web Tools Platform SDK (WTP SDK) @buildversionid@"
+        label="Web Tools Platform SDK (WTP SDK) @buildversionid@">
+        <description>
+            These features provide functionality with the executable code and the source code and are recommended for those
+            extending or debugging
+            WTP.
+        </description>
+    </category-def>
+</site>
