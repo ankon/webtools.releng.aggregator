@@ -356,5 +356,6 @@
       <name>Webtools Repository - Snapshots</name>
       <url>https://repo.eclipse.org/content/repositories/webtools-snapshots/</url>
     </snapshotRepository>
+  </distributionManagement>
 </project>
 
