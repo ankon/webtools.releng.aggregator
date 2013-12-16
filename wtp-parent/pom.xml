@@ -8,6 +8,7 @@
  
   Contributors:
     Thanh Ha (Eclipse Foundation) - initial implementation
+    Mickael Istria (Red Hat Inc.) - 424087 distributionManagement to enable mvn deploy
 -->
 
 <project
@@ -343,5 +344,17 @@
       </build>
     </profile>
   </profiles>
+
+  <distributionManagement>
+    <repository>
+      <id>repo.eclipse.org</id>
+      <name>Webtools Repository - Releases</name>
+      <url>https://repo.eclipse.org/content/repositories/webtools-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>repo.eclipse.org</id>
+      <name>Webtools Repository - Snapshots</name>
+      <url>https://repo.eclipse.org/content/repositories/webtools-snapshots/</url>
+    </snapshotRepository>
 </project>
 
