@@ -343,6 +343,29 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <id>build-individual-bundles</id>
+      <properties>
+        <!-- By default is integration build, but it can be overriden in CLI
+             mvn clean verify -Pbuild-individual-bundles -Dwebtools-repsitory=http://....
+        -->
+        <webtools.buildSite>http://download.eclipse.org/webtools/downloads/drops/R3.6.0/I-3.6.0-20131205053107</webtools.buildSite>
+        <webtools.repository>${webtools.buildSite}/repository</webtools.repository>
+        <webtools.testsRepository>${webtools.buildSite}/repositoryunittests</webtools.testsRepository>
+      </properties>
+      <repositories>
+        <repository>
+          <id>webtools-repostiory</id>
+          <url>${webtools.repository}</url>
+          <layout>p2</layout>
+        </repository>
+        <repository>
+          <id>webtools-tests-repostiory</id>
+          <url>${webtools.testsRepository}</url>
+          <layout>p2</layout>
+        </repository>
+      </repositories>
+    </profile>
   </profiles>
 
   <distributionManagement>
