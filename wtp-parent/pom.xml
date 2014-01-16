@@ -195,6 +195,7 @@
           <version>${tycho.version}</version>
           <configuration>
             <strictBinIncludes>false</strictBinIncludes>
+            <format>'v'yyyyMMddHHmm</format>
 
             <!--
                 Valid options: error, warning, and ignore
