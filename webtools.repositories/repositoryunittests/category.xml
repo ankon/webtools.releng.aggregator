@@ -1,0 +1,8 @@
+<!--
+  Bug 425146: https://bugs.eclipse.org/425146 
+
+  Workaround to get Tycho to provide ${buildQualifier} property
+-->
+
+<site>
+</site>
