@@ -33,6 +33,7 @@
     <comparator.repo>http://download.eclipse.org/webtools/repository/luna</comparator.repo>
 
     <!-- dependency repos -->
+    <license-repo.url>http://download.eclipse.org/cbi/updates/license</license-repo.url>
     <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.4milestones</platform-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.9/</emf-repo.url>
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
@@ -46,6 +47,11 @@
   </properties>
 
   <repositories>
+    <repository>
+      <id>license-feature</id>
+      <url>${license-repo.url}</url>
+      <layout>p2</layout>
+    </repository>
     <repository>
       <id>platform</id>
       <url>${platform-repo.url}</url>
