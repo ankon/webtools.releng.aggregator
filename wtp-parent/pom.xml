@@ -284,6 +284,27 @@
 
   <profiles>
     <profile>
+      <id>macosx</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-surefire-plugin</artifactId>
+            <version>${tycho.version}</version>
+            <configuration>
+              <argLine>-XX:MaxPermSize=128m -XstartOnFirstThread</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
       <id>bree-libs</id>
       <build>
         <pluginManagement>
