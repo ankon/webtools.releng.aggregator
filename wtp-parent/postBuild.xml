@@ -15,7 +15,7 @@
 			property="build.id" 
 			input="${env.BUILD_ID}" 
 			regexp="(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})(-\d{2})" 
-			replace="\1\2\3\4\5" 
+			replace="\1\2\3\4\5\6" 
 			casesensitive="false" />
 		
 		<!--
