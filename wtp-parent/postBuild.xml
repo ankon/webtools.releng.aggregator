@@ -23,7 +23,7 @@
 		from the irrelevant information (path, qualifier, etc.) and get only the wtp.version
 		-->
 		<path id="repo.path">
-			<fileset dir="./webtools.repositories/repository/target/">
+			<fileset dir="../webtools.repositories/repository/target/">
 				<include name="repository-*.zip" />
 			</fileset>
 		</path>
