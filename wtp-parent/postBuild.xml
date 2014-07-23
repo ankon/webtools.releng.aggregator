@@ -15,7 +15,7 @@
 			property="build.id" 
 			input="${env.BUILD_ID}" 
 			regexp="(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})(-\d{2})" 
-			replace="\1\2\3_\4\5" 
+			replace="\1\2\3\4\5" 
 			casesensitive="false" />
 		
 		<!--
@@ -23,7 +23,7 @@
 		from the irrelevant information (path, qualifier, etc.) and get only the wtp.version
 		-->
 		<path id="repo.path">
-			<fileset dir="${env.WORKSPACE}/webtools.repositories/repository/target/">
+			<fileset dir="./webtools.repositories/repository/target/">
 				<include name="repository-*.zip" />
 			</fileset>
 		</path>
