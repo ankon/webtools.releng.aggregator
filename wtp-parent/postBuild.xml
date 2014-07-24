@@ -14,7 +14,7 @@
 		<propertyregex 
 			property="build.id" 
 			input="${env.BUILD_ID}" 
-			regexp="(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})(-\d{2})" 
+			regexp="(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})-(\d{2})" 
 			replace="\1\2\3\4\5\6" 
 			casesensitive="false" />
 		
@@ -46,6 +46,7 @@
 		<property name = "eclipse.download" value="/home/data/httpd/download.eclipse.org" />
 		<property name = "build.path" 
 			value = "/home/data/httpd/download.eclipse.org/webtools/downloads/cbi/wtp4x-R${wtp.version}-I/${build.id}"/>
+		
 		
 		
 		<!--
