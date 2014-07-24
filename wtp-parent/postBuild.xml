@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="post-build">
+<project default="init">
 	<taskdef resource="net/sf/antcontrib/antlib.xml" />
 
 	<target name="init" 
@@ -11,6 +11,7 @@
 		1) We need to remove the "-", replace the "_" with "-" and remove the last 2 digits (seconds) from the timestamp.
 		Thanks to the regex's magic we only group yyyy-mm-dd_hh-mm-ss and and tranform into: yyyymmdd_hhmm.
 		-->
+		<property environment="env" />
 		<propertyregex 
 			property="build.id" 
 			input="${env.BUILD_ID}" 
@@ -55,7 +56,19 @@
 		<echo message="download.eclipse.org Directory: 	[${eclipse.download}]" />
 		<echo message="WTP Download Directory: 			[${build.path}]" />	
 		<echo message="Build ID:						[${build.id}]" />			
-		<echo message="WTP Version:						[${wtp.version}]" />
+		<echo message="ENV Variables" />
+				
+		<echo message="BUILD_NUMBER					[${env.BUILD_NUMBER}]" />
+		<echo message="BUILD_ID						[${env.BUILD_ID}]" />
+		<echo message="JOB_NAME						[${env.JOB_NAME}]" />
+		<echo message="BUILD_TAG					[${env.BUILD_TAG}]" />
+		<echo message="EXECUTOR_NUMBER				[${env.EXECUTOR_NUMBER}]" />
+		<echo message="NODE_NAME					[${env.NODE_NAME}]" />
+		<echo message="WORKSPACE					[${env.WORKSPACE}]" />
+		<echo message="HUDSON_URL					[${env.HUDSON_URL}]" />		
+		<echo message="BUILD_URL					[${env.BUILD_URL}]" />
+		<echo message="JOB_URL						[${env.JOB_URL}]" />
+		<echo message="WORKSPACE					[${env.WORKSPACE}]" />
 				
 	</target>
 
