@@ -1,101 +1,276 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="init">
+<project default="post-build">
 	<taskdef resource="net/sf/antcontrib/antlib.xml" />
-
+	<property name="library.dir" value="./libs"/>
+	<path id="libraries">
+	    <fileset dir="${library.dir}">
+	    	<include name="*.jar"/>
+	    </fileset>
+	</path>
+	
+	<taskdef name="summarizeResults"
+		classname="org.eclipse.wtp.releng.tools.ResultsSummaryGenerator"/>
+	<taskdef name="writePropertiesAsPHP"
+		classname="org.eclipse.wtp.releng.tools.WritePropertiesAsPHP"/>
+	
 	<target name="init" 
-		description="Setup of variables and prepare the files to be processed">
+		description="Setup of the variables that define the project and structure">
 		<!-- 
-		We need to process the Hudson variables (those like [env.***] to make it meaningful for us (WTP), 
+		We need to 'pull' the Hudson variables (those like [env.***],
 		more details about the Hudson variables in [https://hudson.eclipse.org/webtools/env-vars.html]
-		
-		1) We need to remove the "-", replace the "_" with "-" and remove the last 2 digits (seconds) from the timestamp.
-		Thanks to the regex's magic we only group yyyy-mm-dd_hh-mm-ss and and tranform into: yyyymmdd_hhmm.
 		-->
 		<property environment="env" />
-		<propertyregex 
-			property="build.id" 
-			input="${env.BUILD_ID}" 
+		<!-- In case you need to verify the information provided by those varibles, uncomment this section
+					<echo message="ENV Variables" />
+							
+					<echo message="BUILD_NUMBER					[${env.BUILD_NUMBER}]" />
+					<echo message="BUILD_ID						[${env.BUILD_ID}]" />
+					<echo message="JOB_NAME						[${env.JOB_NAME}]" />
+					<echo message="BUILD_TAG					[${env.BUILD_TAG}]" />
+					<echo message="EXECUTOR_NUMBER				[${env.EXECUTOR_NUMBER}]" />
+					<echo message="WORKSPACE					[${env.WORKSPACE}]" />
+					<echo message="HUDSON_URL					[${env.HUDSON_URL}]" />		
+					<echo message="BUILD_URL					[${env.BUILD_URL}]" />
+					<echo message="JOB_URL						[${env.JOB_URL}]" />
+					<echo message="WORKSPACE					[${env.WORKSPACE}]" />
+					-->
+
+		<!--1) We need the BUILD ID, but in a different format: removing the "-", replace the "_" with "-" 
+			and remove the last 2 digits (seconds) from the timestamp.
+			Using to the regex's magic we only group yyyy-mm-dd_hh-mm-ss and and tranform into: yyyymmddhhmm.
+		-->
+		<propertyregex property="build.id" 
+			input="${env.BUILD_ID}"
 			regexp="(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})-(\d{2})" 
 			replace="\1\2\3\4\5\6" 
 			casesensitive="false" />
-		
-		<!--
-		2) We need the WTP version generated, we will get it from the repository file; from there we strip out
-		from the irrelevant information (path, qualifier, etc.) and get only the wtp.version
-		-->
+
+		<!--2) We need the WTP build branch, we will get it from the repository file; 
+		from there we strip out the irrelevant information (path, qualifier, etc.).-->
 		<path id="repo.path">
 			<fileset dir="../webtools.repositories/repository/target/">
 				<include name="repository-*.zip" />
 			</fileset>
 		</path>
-		<property name = "repo.id" refid = "repo.path"/>
-		<propertyregex 
+		<property name="repo.id" refid="repo.path" />
+		<propertyregex
 			property="wtp.version"
 			input="${repo.id}"
-			regexp=".*repository-(.*)-v.*.zip"
-			select="\1"
+			regexp=".*repository-(.*)-v.*.zip" 
+			select="\1" 
 			casesensitive="false" />
 		
-		<!-- 
-		Next, we are going to generate the path for the new build
-		This is compound by:
-		1) The download mount point [/home/data/httpd/download.eclipse.org]
-		2) The webtools dir segment [/webtools/downloads/cbi]
-		3) The wtp version segment: [/wtp4x-RX.Y.Z-I]
-		2) The timestamp dir
-		-->
-		<property name = "eclipse.download" value="/home/data/httpd/download.eclipse.org" />
-		<property name = "build.path" 
-			value = "/home/data/httpd/download.eclipse.org/webtools/downloads/cbi/wtp4x-R${wtp.version}-I/${build.id}"/>
+		<!-- 2.5, The branch is the version with the prefix R-->
+		<property name="build.branch" value="R${wtp.version}" />
+
+		<!--3) The Build Type is easy, all new builds are "I" (for Integration) or "P", but
+		we don't have any "Patch" build using CBI [[[YET]]]; 
+		later, in the promotion, it will updated to R (Release) or M (Mileston).-->
+		<property name="build.type" value="I" />
 		
+		<!--4) The Build date, human readable-->
+		<tstamp>
+			<format property="build.date" pattern="dd MMMM, yyyy" locale="en,US" />
+		</tstamp>
 		
-		
-		<!--
-		Displaying the values to be used for the post-processing
-		-->
-		<echo message="download.eclipse.org Directory: 	[${eclipse.download}]" />
-		<echo message="WTP Download Directory: 			[${build.path}]" />	
-		<echo message="Build ID:						[${build.id}]" />			
-		<echo message="ENV Variables" />
+		<!--5) Build distribution, to differentiate e4 from old distributions -->
+		<property name="build.dist" value="wtp4x" />
+		<property name="build" value="R-${wtp.version}-${build.id}" />
 				
-		<echo message="BUILD_NUMBER					[${env.BUILD_NUMBER}]" />
-		<echo message="BUILD_ID						[${env.BUILD_ID}]" />
-		<echo message="JOB_NAME						[${env.JOB_NAME}]" />
-		<echo message="BUILD_TAG					[${env.BUILD_TAG}]" />
-		<echo message="EXECUTOR_NUMBER				[${env.EXECUTOR_NUMBER}]" />
-		<echo message="NODE_NAME					[${env.NODE_NAME}]" />
-		<echo message="WORKSPACE					[${env.WORKSPACE}]" />
-		<echo message="HUDSON_URL					[${env.HUDSON_URL}]" />		
-		<echo message="BUILD_URL					[${env.BUILD_URL}]" />
-		<echo message="JOB_URL						[${env.JOB_URL}]" />
-		<echo message="WORKSPACE					[${env.WORKSPACE}]" />
+
+		<!-- 6)Destiny path (in the downloads mount) for the new build
+		This is compound by:
+		a) The download mount point [/home/data/httpd/download.eclipse.org]
+		b) The webtools dir segment [/webtools/downloads/cbi]
+		c) The wtp version segment: [/wtp4x-RX.Y.Z-I]
+		d) The timestamp dir
+		-->
+		<property name="eclipse.download" value="/home/data/httpd/download.eclipse.org" />
+		<property name="dest.path"
+			value="/home/data/httpd/download.eclipse.org/webtools/downloads/cbi/${build.dist}-${build.branch}-${build.type}/${build.id}/${build}" />
+		
+		<!--7) Test Results directory, where the JUNit Test Reports (XML & HTML files) will be stored-->
+		<property name="test.results" value="${dest.path}/testResults" />
+		
+		<!--8) Template Directory, with all template files for the download page -->
+		<property name="template.dir" value="./templateFiles" />
+		
+		<!--9) Logs path -->
+		<property name="logs.path" value="https://hudson.eclipse.org/webtools/job/${env.JOB_NAME}/${env.BUILD_NUMBER}" />
+		<property name="simple.log" value="${logs.path}/console" />
+		<property name="full.log" value="${logs.path}/consoleFull" />
+				
+		<!--Displaying the values to be used for the post-processing-->
+		<echo message="" />
+		<echo message=":::Working directories:::" />		
+		<echo message="download.eclipse.org Directory...[${eclipse.download}]" />
+		<echo message="WTP Destination Path.............[${dest.path}]" />
+		<echo message="Test Result Directory ...........[${test.results}]" />
+		<echo message="Templates' Directory.............[${template.dir}]" />
+		<echo message="" />	
+		<echo message=":::Build Details:::" />			
+		<echo message="Build ID.........................[${build.id}]" />
+		<echo message="Build ...........................[${build}]" />
+		<echo message="Build Distribution...............[${build.dist}]" />
+		<echo message="Build branch.....................[${build.branch}]" />
+		<echo message="Build type.......................[${build.type}]" />
+		<echo message="Build date.......................[${build.date}]" />
+		<echo message="" />	
+		<echo message=":::LOGS:::" />			
+		<echo message="Simple Log.......................[${simple.log}]" />
+		<echo message="Full Log.........................[${full.log}]" />
 				
 	</target>
 
-	<target name="copy-files" 
-		depends="init" 
-		description="Copies the artifacts generated by the build and the JUnit Result Reports to the the Download Machine">
+	<target name="process-artifacts"
+				description="Copies the artifacts generated by the build to the the Download Machine">
 		<echo message="Moving artifacts..." />
-		<!--First we copy all the *.zip files from the targets, this mean the artifacts generated by maven-->
-		<copy todir="${build.path}" flatten="true">
+		<!--We need to copy the artifacts generated by maven-->
+		<copy todir="${dest.path}" flatten="true">
 			<fileset dir="../">
 				<patternset id="wtp-artifacts">
 					<include name="webtools.repositories/*/target/*.zip" />
 				</patternset>
 			</fileset>
 		</copy>
-		<echo message="Moving JUnit Reports" />
-		<!--Second we copy all the *.xml with the surefire-reports-->
-		<copy todir="${build.path}" flatten="true">
+		<!--1)WTP P2 Repository, renaming -->
+		<move todir="${dest.path}">
+			<fileset dir="${dest.path}" />
+			<mapper>
+				<mapper type="regexp" 
+					from=".*repository-(.*)-v.*.zip" 
+					to="${build.dist}-repo-${build}.zip" />
+				<mapper type="regexp"
+					from=".*repositoryunittests.*.zip" 
+					to="${build.dist}-tests-repo-${build}.zip" />
+			</mapper>
+		</move>
+	</target>
+
+	<target name="generate-checksum"
+			description="Generates the MD5 and SHA1 checksums for the P2 ZIP Files">
+		<!--1) Generate the MD5 for all the ZIP files, store the result in the checksum dir-->
+		<echo message="Generating MD5..." />
+		<checksum todir="${dest.path}/checksum" algorithm="md5">
+			<fileset dir="${dest.path}">
+				<include name="*.zip" />
+			</fileset>
+		</checksum>
+
+		<!--2) Generate the SHA for all the ZIP files, store the result in the checksum dir-->
+		<echo message="Generating SHA1..." />
+		<checksum todir="${dest.path}/checksum" algorithm="sha1">
+			<fileset dir="${dest.path}">
+				<include name="*.zip" />
+			</fileset>
+		</checksum>
+	</target>
+
+	<target name="process-tests-results">
+		<echo message="Copying XML Test Results..." />
+		<copy todir="${test.results}/xml" flatten="true">
 			<fileset dir="../">
 				<patternset id="junit-reports">
 					<include name="**/target/surefire-reports/*.xml" />
 				</patternset>
 			</fileset>
 		</copy>
+		
+		<!--The structure of the JUnit reports are not as expected from maven,
+		we need a little modification so the each testsuite be ready as a page, so 
+		replace testsuite by testsuites and adjust the ending tags too.
+		-->
+		<replace dir="${test.results}/xml"
+				includes="**/*.xml"
+				value="">     
+			<replacefilter token="&lt;testsuite"  value="&lt;testsuites>&lt;testsuite "/>
+			<replacefilter token="&lt;/testsuite>" value="&lt;/testsuite>&lt;/testsuites>"/>
+		</replace>
+		
+		<echo message="Generanting the HTML Test Results from the XML..." />
+		<!--Remove the TEST- prefix from the XML Test Result-->
+		<log activate = "false" />
+		<move todir="${test.results}/xml">
+			<fileset dir="${test.results}/xml" />
+			<mapper>
+				<mapper type="regexp" from="(TEST-)(.*)" to="\2" />
+			</mapper>
+		</move>
+		
+		<xslt style="./tests/junit.xsl"
+			basedir="${test.results}/xml"
+			destdir="${test.results}/html" />
+		<log activate = "true" />
+		
+		<!--Generate summary report-->
+		<echo message="Generate Summary Report..." />
+		<summarizeResults
+			isBuildTested="true"
+		    dropTokenList="${dropTokenList}"
+		    dropDirectoryName="${dest.path}"
+		    xmlDirectoryName="${test.results}/xml"
+		    testResultsTemplateFileName="${template.dir}/testResults.php.template.php"
+		    testResultsHtmlFileName="testResults.php"
+		    hrefTestResultsTargetPath="testResults/html"
+		    compileLogsDirectoryName=""/>
+		
 	</target>
+		
+	<target name = "prepare-page-files">
+		<copy todir="${dest.path}">
+			<fileset dir="${template.dir}">
+				<exclude name="**/*template.php"/>
+				<exclude name="**/*php.template"/>
+			</fileset>
+		</copy>
+		
+		 <!--get static files required in the buildLabel directory-->
+		<copy todir="${dest.path}">
+			<fileset dir="./staticDropFiles"/>
+		</copy>
+		<copy overwrite="true"
+		    file="${template.dir}/index.html.template.php"
+		    tofile="${dest.path}/index.php"/>
+		<copy overwrite="true"
+			file="${template.dir}/buildvariables.php"
+			tofile="${dest.path}/buildvariables.php"/>
+		
+		<writePropertiesAsPHP
+			propFileName="./data/dependencies.properties"
+			outPHPFileName="${dest.path}/dependency.properties.php"
+			buildlabel="${buid.id}"/>
 
-	<target name="post-build" depends="copy-files">
-
+		<replace dir="${dest.path}"
+				includes="**/buildvariables.php"
+				value=""
+				propertyFile="./data/dependencies.properties">     
+			<replacefilter token="@buildtype@" value="${build.type}"/>
+			<replacefilter token="@date@" value="${build.date}"/>
+			<replacefilter token="@build@" value="${build}"/>
+			<replacefilter token="@buildBranch@" value="${build.branch}"/>
+			<replacefilter token="@build_distribution@" value="${build.dist}"/>
+			<replacefilter token="@simple_log@" value="${simple.log}"/>
+			<replacefilter token="@full_log@" value="${full.log}"/>
+		</replace>
+				
+		<touch file="${dest.path}/index.php"/>
 	</target>
+	
+	<target name="post-build" depends="init">
+		<antcall target="prepare-page-files" />
+		<antcall target="process-artifacts"/>
+		<antcall target="generate-checksum"/>
+		<antcall target="process-tests-results"/>
+	</target>
+		
+	<!--Macros Definition-->
+	<macrodef name="log">
+		<attribute name="activate" default="true"/>
+		<sequential>
+			<script language="javascript">
+			     var logger = project.getBuildListeners( ).firstElement( );
+			     logger.setMessageOutputLevel( @{activate} ? 1 : 0 );
+			</script>
+		</sequential>
+		</macrodef>
 </project>
