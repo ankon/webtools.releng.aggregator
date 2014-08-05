@@ -67,9 +67,9 @@
 		in the ANT execution section, Properties sub-section 
 		build.type=M
 		
-		M -> Maintenance (Example> 3.6.1)
-		I -> Integration (Example> 3.7.0)
-		P -> Patch    	 
+		M -> Milestone
+		I -> Integration
+		P -> Patch
 		
 		<property name="build.type" value="I" />
 		-->
@@ -152,12 +152,33 @@
 			</mapper>
 		</move>
 		
+		<available file="${dest.path}/${build.dist}-repo-${build}.zip"  
+			property="repo.found"/>
+		<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip"  
+			property="repo.tests.found"/>
+		
 		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
 		<echo message="Uncompress P2 repositories" />
-		<unzip src = "${dest.path}/${build.dist}-repo-${build}.zip" 
-			dest="${dest.path}/repository" />
-		<unzip src = "${dest.path}/${build.dist}-tests-repo-${build}.zip" 
-			dest="${dest.path}/repositoryunittests" />
+		<if>
+			<available file="${dest.path}/${build.dist}-repo-${build}.zip" />
+			<then>
+				<unzip src = "${dest.path}/${build.dist}-repo-${build}.zip" 
+					dest="${dest.path}/repository" />
+			</then>
+			<else>
+				<echo message="P2 Repo ZIP not found..." />
+			</else>
+		</if>
+		<if>
+			<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip" />
+			<then>
+				<unzip src = "${dest.path}/${build.dist}-tests-repo-${build}.zip" 
+					dest="${dest.path}/repositoryunittests" />
+			</then>
+			<else>
+				<echo message="P2 Tests Repo ZIP not found..." />
+			</else>
+		</if>
 	</target>
 
 	<target name="generate-checksum"
