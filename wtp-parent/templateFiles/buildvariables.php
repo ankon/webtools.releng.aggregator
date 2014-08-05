@@ -15,8 +15,6 @@ $buildBranch="@buildBranch@";
 $build="@build@";
 $buildtype="@buildtype@";
 $builddate="@date@";
-$simplelog="@simple_log@";
-$fulllog="@full_log@";
 
 $debugScript = false;
 $debugFunctions = false;

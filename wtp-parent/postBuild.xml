@@ -101,17 +101,21 @@
 		<property name="template.dir" value="./templateFiles" />
 		
 		<!--9) Logs path -->
-		<property name="logs.path" value="https://hudson.eclipse.org/webtools/job/${env.JOB_NAME}/${env.BUILD_NUMBER}" />
-		<property name="simple.log" value="${logs.path}/console" />
-		<property name="full.log" value="${logs.path}/consoleFull" />
+		<property name="log.path" value="/jobs/genie.webtools/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}" />
+		<property name="full.log" value="${dest.path}/fullLog.zip" />
+				
 				
 		<!--Displaying the values to be used for the post-processing-->
 		<echo message="" />
-		<echo message=":::Working directories:::" />		
+		<echo message=":::Source directories:::" />		
+		<echo message="Log Directory....................[${log.path}]" />
+		<echo message="Templates Directory..............[${template.dir}]" />
+		<echo message="" />
+		<echo message=":::Destiny directories:::" />		
 		<echo message="download.eclipse.org Directory...[${eclipse.download}]" />
 		<echo message="WTP Destination Path.............[${dest.path}]" />
 		<echo message="Test Result Directory ...........[${test.results}]" />
-		<echo message="Templates' Directory.............[${template.dir}]" />
+		<echo message="Full log path........ ...........[${full.log}]" />					
 		<echo message="" />	
 		<echo message=":::Build Details:::" />			
 		<echo message="Build ID.........................[${build.id}]" />
@@ -120,11 +124,6 @@
 		<echo message="Build branch.....................[${build.branch}]" />
 		<echo message="Build type.......................[${build.type}]" />
 		<echo message="Build date.......................[${build.date}]" />
-		<echo message="" />	
-		<echo message=":::LOGS:::" />			
-		<echo message="Simple Log.......................[${simple.log}]" />
-		<echo message="Full Log.........................[${full.log}]" />
-				
 	</target>
 
 	<target name="process-artifacts"
@@ -201,60 +200,66 @@
 	</target>
 
 	<target name="process-tests-results">
-			<echo message="Copying XML Test Results..." />
-			<copy todir="${test.results}/xml" flatten="true">
-				<fileset dir="../">
-					<patternset id="junit-reports">
-						<include name="**/target/surefire-reports/*.xml" />
-					</patternset>
-				</fileset>
-			</copy>
-			<if>
-				<!--Before proceed we verify there are test results -->
-				<available file="${test.results}/xml" type = "dir"/>
-				<then>
-				<!--The structure of the JUnit reports are not as expected from maven,
-				we need a little modification so the each testsuite be ready as a page, so 
-				replace testsuite by testsuites and adjust the ending tags too.
-				-->
-				<replace dir="${test.results}/xml"
-						includes="**/*.xml"
-						value="">     
-					<replacefilter token="&lt;testsuite"  value="&lt;testsuites>&lt;testsuite "/>
-					<replacefilter token="&lt;/testsuite>" value="&lt;/testsuite>&lt;/testsuites>"/>
-				</replace>
-				
-				<echo message="Generanting the HTML Test Results from the XML..." />
-				
-				<move todir="${test.results}/xml">
-					<fileset dir="${test.results}/xml" />
-					<mapper>
-						<mapper type="regexp" from="(TEST-)(.*)" to="\2" />
-					</mapper>
-				</move>
-				
-				<xslt style="./tests/junit.xsl"
-					basedir="${test.results}/xml"
-					destdir="${test.results}/html" />
-				
-				<!--Generate summary report-->
-				<echo message="Generate Summary Report..." />
-				<summarizeResults
-					isBuildTested="true"
-				    dropTokenList="${dropTokenList}"
-				    dropDirectoryName="${dest.path}"
-				    xmlDirectoryName="${test.results}/xml"
-				    testResultsTemplateFileName="${template.dir}/testResults.php.template.php"
-				    testResultsHtmlFileName="testResults.php"
-				    hrefTestResultsTargetPath="testResults/html"
-				    compileLogsDirectoryName=""/>
-					
-				</then>
-				<else>
-					<echo message="No test results found..." />
-				</else>
-			</if>
-		</target>
+		<echo message="Copying XML Test Results..." />
+		<copy todir="${test.results}/xml" flatten="true">
+			<fileset dir="../">
+				<patternset id="junit-reports">
+					<include name="**/target/surefire-reports/*.xml" />
+				</patternset>
+			</fileset>
+		</copy>
+		
+		<if>
+			<available file="${test.results}/xml" type = "dir"/>
+			<then>
+			<!--The structure of the JUnit reports are not as expected from maven,
+			we need a little modification so the each testsuite be ready as a page, so 
+			replace testsuite by testsuites and adjust the ending tags too.
+			-->
+			<replace dir="${test.results}/xml"
+					includes="**/*.xml"
+					value="">     
+				<replacefilter token="&lt;testsuite"  value="&lt;testsuites>&lt;testsuite "/>
+				<replacefilter token="&lt;/testsuite>" value="&lt;/testsuite>&lt;/testsuites>"/>
+			</replace>
+			
+			<echo message="Generanting the HTML Test Results from the XML..." />
+			
+			<move todir="${test.results}/xml">
+				<fileset dir="${test.results}/xml" />
+				<mapper>
+					<mapper type="regexp" from="(TEST-)(.*)" to="\2" />
+				</mapper>
+			</move>
+			
+			<log level = "0" />
+			<xslt style="./tests/junit.xsl"
+				basedir="${test.results}/xml"
+				destdir="${test.results}/html" />
+			
+			<!--Generate summary report-->
+			<echo message="Generate Summary Report..." />
+			<summarizeResults
+				isBuildTested="true"
+			    dropTokenList="${dropTokenList}"
+			    dropDirectoryName="${dest.path}"
+			    xmlDirectoryName="${test.results}/xml"
+			    testResultsTemplateFileName="${template.dir}/testResults.php.template.php"
+			    testResultsHtmlFileName="testResults.php"
+			    hrefTestResultsTargetPath="testResults/html"
+			    compileLogsDirectoryName=""/>
+			<log level = "2" />							
+			</then>
+			<else>
+				<echo message="No test results found..." />
+			</else>
+		</if>
+	</target>
+	
+	<target name = "process-logs" >
+		<echo message="Compressing and copying the full log..." />
+		<zip basedir= "${log.path}" file="${log.path}/log" destfile="${full.log}" />
+	</target>
 		
 	<target name = "prepare-page-files">
 		<copy todir="${dest.path}">
@@ -289,8 +294,6 @@
 			<replacefilter token="@build@" value="${build}"/>
 			<replacefilter token="@buildBranch@" value="${build.branch}"/>
 			<replacefilter token="@build_distribution@" value="${build.dist}"/>
-			<replacefilter token="@simple_log@" value="${simple.log}"/>
-			<replacefilter token="@full_log@" value="${full.log}"/>
 		</replace>
 				
 		<touch file="${dest.path}/index.php"/>
@@ -301,16 +304,17 @@
 		<antcall target="process-artifacts"/>
 		<antcall target="generate-checksum"/>
 		<antcall target="process-tests-results"/>
+		<antcall target="process-logs" />
 	</target>
 		
 	<!--Macros Definition-->
 	<macrodef name="log">
-		<attribute name="activate" default="true"/>
-		<sequential>
-			<script language="javascript">
-			     var logger = project.getBuildListeners( ).firstElement( );
-			     logger.setMessageOutputLevel( @{activate} ? 1 : 0 );
-			</script>
-		</sequential>
-		</macrodef>
+			<attribute name="level" default="3"/>
+			<sequential>
+				<script language="javascript">
+				     var logger = project.getBuildListeners( ).firstElement( );
+				     logger.setMessageOutputLevel( @{level} );
+				</script>
+			</sequential>
+	</macrodef>
 </project>

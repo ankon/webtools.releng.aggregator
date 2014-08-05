@@ -230,9 +230,10 @@ if (phpversion() >= 5) {
 //                         echo "<img src=\"access_err.gif\"/><font color=red>$test_totalforbiddenAccessWarningCount</font>&nbsp;";
 //                         echo "<img src=\"access_warn.gif\"/><font color=orange>$test_totaldiscouragedAccessWarningCount</font>&nbsp;";
 
-			 echo "<br /> <a href='$simplelog'/>Summary Log</a> from build ";
-			 echo "<br /> <a href='$fulllog'/>Full Log</a> from build ";
-
+			 $fileName = "fullLog.zip";
+                         if (file_exists($fileName)) {
+                            echo "<br /> <a href='./$fileName'/>Full Log</a> from build ";
+                         }
                     }
 
                     ?> <br />
