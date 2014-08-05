@@ -201,54 +201,60 @@
 	</target>
 
 	<target name="process-tests-results">
-		<echo message="Copying XML Test Results..." />
-		<copy todir="${test.results}/xml" flatten="true">
-			<fileset dir="../">
-				<patternset id="junit-reports">
-					<include name="**/target/surefire-reports/*.xml" />
-				</patternset>
-			</fileset>
-		</copy>
-		
-		<!--The structure of the JUnit reports are not as expected from maven,
-		we need a little modification so the each testsuite be ready as a page, so 
-		replace testsuite by testsuites and adjust the ending tags too.
-		-->
-		<replace dir="${test.results}/xml"
-				includes="**/*.xml"
-				value="">     
-			<replacefilter token="&lt;testsuite"  value="&lt;testsuites>&lt;testsuite "/>
-			<replacefilter token="&lt;/testsuite>" value="&lt;/testsuite>&lt;/testsuites>"/>
-		</replace>
-		
-		<echo message="Generanting the HTML Test Results from the XML..." />
-		<!--Remove the TEST- prefix from the XML Test Result-->
-		<log activate = "false" />
-		<move todir="${test.results}/xml">
-			<fileset dir="${test.results}/xml" />
-			<mapper>
-				<mapper type="regexp" from="(TEST-)(.*)" to="\2" />
-			</mapper>
-		</move>
-		
-		<xslt style="./tests/junit.xsl"
-			basedir="${test.results}/xml"
-			destdir="${test.results}/html" />
-		<log activate = "true" />
-		
-		<!--Generate summary report-->
-		<echo message="Generate Summary Report..." />
-		<summarizeResults
-			isBuildTested="true"
-		    dropTokenList="${dropTokenList}"
-		    dropDirectoryName="${dest.path}"
-		    xmlDirectoryName="${test.results}/xml"
-		    testResultsTemplateFileName="${template.dir}/testResults.php.template.php"
-		    testResultsHtmlFileName="testResults.php"
-		    hrefTestResultsTargetPath="testResults/html"
-		    compileLogsDirectoryName=""/>
-		
-	</target>
+			<echo message="Copying XML Test Results..." />
+			<copy todir="${test.results}/xml" flatten="true">
+				<fileset dir="../">
+					<patternset id="junit-reports">
+						<include name="**/target/surefire-reports/*.xml" />
+					</patternset>
+				</fileset>
+			</copy>
+			<if>
+				<!--Before proceed we verify there are test results -->
+				<available file="${test.results}/xml" type = "dir"/>
+				<then>
+				<!--The structure of the JUnit reports are not as expected from maven,
+				we need a little modification so the each testsuite be ready as a page, so 
+				replace testsuite by testsuites and adjust the ending tags too.
+				-->
+				<replace dir="${test.results}/xml"
+						includes="**/*.xml"
+						value="">     
+					<replacefilter token="&lt;testsuite"  value="&lt;testsuites>&lt;testsuite "/>
+					<replacefilter token="&lt;/testsuite>" value="&lt;/testsuite>&lt;/testsuites>"/>
+				</replace>
+				
+				<echo message="Generanting the HTML Test Results from the XML..." />
+				
+				<move todir="${test.results}/xml">
+					<fileset dir="${test.results}/xml" />
+					<mapper>
+						<mapper type="regexp" from="(TEST-)(.*)" to="\2" />
+					</mapper>
+				</move>
+				
+				<xslt style="./tests/junit.xsl"
+					basedir="${test.results}/xml"
+					destdir="${test.results}/html" />
+				
+				<!--Generate summary report-->
+				<echo message="Generate Summary Report..." />
+				<summarizeResults
+					isBuildTested="true"
+				    dropTokenList="${dropTokenList}"
+				    dropDirectoryName="${dest.path}"
+				    xmlDirectoryName="${test.results}/xml"
+				    testResultsTemplateFileName="${template.dir}/testResults.php.template.php"
+				    testResultsHtmlFileName="testResults.php"
+				    hrefTestResultsTargetPath="testResults/html"
+				    compileLogsDirectoryName=""/>
+					
+				</then>
+				<else>
+					<echo message="No test results found..." />
+				</else>
+			</if>
+		</target>
 		
 	<target name = "prepare-page-files">
 		<copy todir="${dest.path}">
