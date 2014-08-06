@@ -299,17 +299,15 @@
 		<touch file="${dest.path}/index.php"/>
 	</target>
 	
-	<target name="post-build" depends="init">
-		<antcall target="prepare-page-files" />
-		<antcall target="process-artifacts"/>
-		<antcall target="generate-checksum"/>
-		<antcall target="process-tests-results"/>
-		<antcall target="process-logs" />
+	<!-- this must be done when everything is ready -->
+	<target name="post-build"
+			depends="init,prepare-page-files, process-artifacts, generate-checksum, process-tests-results, process-logs">
+		<touch file="${dest.path}/build.ready" />
 	</target>
 		
 	<!--Macros Definition-->
 	<macrodef name="log">
-			<attribute name="level" default="3"/>
+			<attribute name="level" default="2"/>
 			<sequential>
 				<script language="javascript">
 				     var logger = project.getBuildListeners( ).firstElement( );
