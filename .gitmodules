@@ -73,3 +73,6 @@
 [submodule "webtools.jsdt"]
 	path = webtools.jsdt
 	url = ../../jsdt/webtools.jsdt
+[submodule "ssh://jchavez@git.eclipse.org/gitroot/webtools-common/webtools.common"]
+	path = ssh://jchavez@git.eclipse.org/gitroot/webtools-common/webtools.common
+	url = ssh://jchavez@git.eclipse.org/gitroot/webtools-common/webtools.common
