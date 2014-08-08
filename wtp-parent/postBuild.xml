@@ -59,17 +59,22 @@
 			regexp=".*repository-(.*)-v.*.zip" 
 			select="\1" 
 			casesensitive="false" />
-		
-		<!-- 2.5, The branch is the version with the prefix R-->
-		<property name="build.branch" value="R${wtp.version}" />
+		<!--2.5, The build product is to identify Releaseas from Patches
+		Right now, this script is not prepared for patches, so we hardcoded to R
+		in the future this will be obtained from the Hudson Job
+		-->
+		<property name="build.product" value="R" />
+						
+		<!-- 2.6, The branch is the version with the prefix R-->
+		<property name="build.branch" value="${build.product}${wtp.version}" />
+				
 
 		<!--3) The build type must be defined in the build configuration
 		in the ANT execution section, Properties sub-section 
 		build.type=M
 		
-		M -> Milestone
+		M -> Maintenance
 		I -> Integration
-		P -> Patch
 		
 		<property name="build.type" value="I" />
 		-->
@@ -80,7 +85,7 @@
 		
 		<!--5) Build distribution, to differentiate e4 from old distributions -->
 		<property name="build.dist" value="wtp4x" />
-		<property name="build" value="R-${wtp.version}-${build.id}" />
+		<property name="build" value="${build.type}-${wtp.version}-${build.id}" />
 				
 
 		<!-- 6)Destiny path (in the downloads mount) for the new build
@@ -103,8 +108,20 @@
 		<!--9) Logs path -->
 		<property name="log.path" value="/jobs/genie.webtools/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}" />
 		<property name="full.log" value="${dest.path}/fullLog.zip" />
-				
-				
+		
+		<!--Additional information for the user-->
+		<switch value="${build.type}">
+		  <case value="I">
+		    <property name="build.type.desc" value = "Integration" />
+		  </case>
+		  <case value="M">
+		  	<property name="build.type.desc" value = "Maintenance" />
+		  </case>
+		  <default>
+		  	<property name="build.type.desc" value = "Initial not recognized" />
+		  </default>
+		</switch>
+		
 		<!--Displaying the values to be used for the post-processing-->
 		<echo message="" />
 		<echo message=":::Source directories:::" />		
@@ -121,8 +138,9 @@
 		<echo message="Build ID.........................[${build.id}]" />
 		<echo message="Build ...........................[${build}]" />
 		<echo message="Build Distribution...............[${build.dist}]" />
-		<echo message="Build branch.....................[${build.branch}]" />
-		<echo message="Build type.......................[${build.type}]" />
+		<echo message="Build product....................[${build.product}]" />
+		<echo message="Build branch.....................[${build.branch}] " />
+		<echo message="Build type.......................[${build.type}] (${build.type.desc})" />
 		<echo message="Build date.......................[${build.date}]" />
 	</target>
 
