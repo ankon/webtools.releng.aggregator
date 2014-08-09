@@ -95,9 +95,9 @@
 		c) The wtp version segment: [/wtp4x-RX.Y.Z-I]
 		d) The timestamp dir
 		-->
-		<property name="eclipse.download" value="/home/data/httpd/download.eclipse.org" />
+		<property name="wtp.committers" value="/opt/public/webtools/committers" />
 		<property name="dest.path"
-			value="/home/data/httpd/download.eclipse.org/webtools/downloads/cbi/${build.dist}-${build.branch}-${build.type}/${build.id}/${build}" />
+			value="${wtp.committers}/${build.dist}-${build.branch}-${build.type}/${build.id}/${build}" />
 		
 		<!--7) Test Results directory, where the JUNit Test Reports (XML & HTML files) will be stored-->
 		<property name="test.results" value="${dest.path}/testResults" />
@@ -129,7 +129,7 @@
 		<echo message="Templates Directory..............[${template.dir}]" />
 		<echo message="" />
 		<echo message=":::Destiny directories:::" />		
-		<echo message="download.eclipse.org Directory...[${eclipse.download}]" />
+		<echo message="download.eclipse.org Directory...[${wtp.committers}]" />
 		<echo message="WTP Destination Path.............[${dest.path}]" />
 		<echo message="Test Result Directory ...........[${test.results}]" />
 		<echo message="Full log path........ ...........[${full.log}]" />					
