@@ -52,6 +52,7 @@
 				<include name="repository-*.zip" />
 			</fileset>
 		</path>
+		
 		<property name="repo.id" refid="repo.path" />
 		<propertyregex
 			property="wtp.version"
@@ -59,6 +60,13 @@
 			regexp=".*repository-(.*)-v.*.zip" 
 			select="\1" 
 			casesensitive="false" />
+		
+		<condition property="repo.exists">
+		  <isset property="${wtp.version}"/>
+		</condition>
+		<fail message="The repository ZIP file does not exist. It is not possible to continue the publishing."
+		      unless="wtp.version"/>
+		
 		<!--2.5, The build product is to identify Releaseas from Patches
 		Right now, this script is not prepared for patches, so we hardcoded to R
 		in the future this will be obtained from the Hudson Job
