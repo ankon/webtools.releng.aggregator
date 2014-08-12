@@ -117,6 +117,9 @@
 		<property name="log.path" value="/jobs/genie.webtools/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}" />
 		<property name="full.log" value="${dest.path}/fullLog.zip" />
 		
+		<!--10) Files Count-->
+		<property name="files.count" value="${dest.path}/files.count" />
+				
 		<!--Additional information for the user-->
 		<switch value="${build.type}">
 		  <case value="I">
@@ -150,6 +153,11 @@
 		<echo message="Build branch.....................[${build.branch}] " />
 		<echo message="Build type.......................[${build.type}] (${build.type.desc})" />
 		<echo message="Build date.......................[${build.date}]" />
+		<echo message="" />	
+		<echo message=":::Additional Information:::" />
+		<echo message="Files Count path.................[${files.count}]" />
+				
+				
 	</target>
 
 	<target name="process-artifacts"
@@ -282,6 +290,22 @@
 		</if>
 	</target>
 	
+	<target name = "file-counting" >
+		<!--At the very end, we need the ZIP file counting, this will stored in the file indicated by 
+		${files.count}.-->
+		<echo message="Writting file count..." />
+		<resourcecount property="counter">
+			<fileset dir="${dest.path}">
+				<patternset id="wtp-artifacts">
+					<include name="*.zip" />
+				</patternset>
+			</fileset>
+		</resourcecount>
+		<touch file="${files.count}"/>
+		<echo message="Final file counting: [${counter}]" />
+		<echo file="${files.count}" message="${counter}" />
+	</target>
+	
 	<target name = "process-logs" >
 		<echo message="Compressing and copying the full log..." />
 		<zip basedir= "${log.path}" file="${log.path}/log" destfile="${full.log}" />
@@ -327,8 +351,13 @@
 	
 	<!-- this must be done when everything is ready -->
 	<target name="post-build"
-			depends="init,prepare-page-files, process-artifacts, generate-checksum, process-tests-results, process-logs">
-		<touch file="${dest.path}/build.ready" />
+		depends="	init,
+					prepare-page-files,
+					process-artifacts,
+					generate-checksum,
+					process-tests-results,
+					process-logs,
+					file-counting">
 	</target>
 		
 	<!--Macros Definition-->
