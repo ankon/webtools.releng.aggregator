@@ -24,7 +24,6 @@
     <module>wtp-parent</module>
     <module>webtools.releng</module>
     <module>webtools.repositories</module>
-    <module>wdt-prereqs</module>
   
     <module>webtools.common</module>
     <module>webtools.common.fproj</module>
