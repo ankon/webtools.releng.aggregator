@@ -34,10 +34,13 @@
 
     <!-- dependency repos -->
     <license-repo.url>http://download.eclipse.org/cbi/updates/license</license-repo.url>
+   	<!--  Dependencies moved to target file -->
+    <!--  
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M1-201408062000</platform-repo.url>
+    -->
    
     <!-- Mars Updates -->
-    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M1-201408062000</platform-repo.url>
-   	<gef-repo.url>https://hudson.eclipse.org/hudson/job/gef-master/lastSuccessfulBuild/artifact/update-site</gef-repo.url>
+    <gef-repo.url>https://hudson.eclipse.org/hudson/job/gef-master/lastSuccessfulBuild/artifact/update-site</gef-repo.url>
     <!-- Updates breaking the build 3.7.0 -->
     
     <!-- No updates for mars Yet -->
@@ -66,11 +69,13 @@
       <url>${license-repo.url}</url>
       <layout>p2</layout>
     </repository>
+    <!--  
     <repository>
       <id>platform</id>
       <url>${platform-repo.url}</url>
       <layout>p2</layout>
     </repository>
+    -->
     <repository>
       <id>emf</id>
       <url>${emf-repo.url}</url>

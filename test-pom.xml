@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2012, 2013 Eclipse Foundation and others.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Distribution License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/org/documents/edl-v10.php
+ 
+  Contributors:
+    Thanh Ha (Eclipse Foundation) - initial implementation
+-->
+
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.eclipse.wtp</groupId>
+  <artifactId>wtp-aggregator</artifactId>
+  <version>3.6.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>wtp-parent</module>
+    <module>webtools.releng</module>
+    <module>webtools.repositories</module>
+    <module>wdt-prereqs</module>
+    
+  
+    <module>webtools.common</module>
+    <module>webtools.common.fproj</module>
+    <module>webtools.common.snippets</module>
+    <module>webtools.common.tests</module>
+    <module>webtools.dali</module>
+    <module>webtools.ejb</module>
+    <module>webtools.javaee</module>
+    <module>webtools.javaee.tests</module>
+    <module>webtools.jsdt</module>
+    <module>webtools.jsf</module>
+    <module>webtools.jsf.docs</module>
+    <module>webtools.jsf.tests</module>
+    <module>webtools.servertools</module>
+    <module>webtools.servertools.docs</module>
+    <module>webtools.servertools.tests</module>
+    <module>webtools.sourceediting</module>
+    <module>webtools.sourceediting.tests</module>
+    <module>webtools.sourceediting.xpath</module>
+    <module>webtools.sourceediting.xpath.tests</module>
+    <module>webtools.sourceediting.xsl</module>
+    <module>webtools.sourceediting.xsl.tests</module>
+    <module>webtools.webservices</module>
+    <module>webtools.webservices.axis2</module>
+    <module>webtools.webservices.jaxws</module>
+  </modules>
+  
+  
+</project>
