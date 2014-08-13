@@ -17,7 +17,7 @@
   
   <groupId>org.eclipse</groupId>
   <artifactId>wdt-prereqs</artifactId>
-  <version>3.6.0-SNAPSHOT</version>
+  <version>3.7.0-SNAPSHOT</version>
   <packaging>eclipse-target-definition</packaging>
   <name>wdt-prereqs</name>
   
