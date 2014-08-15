@@ -54,7 +54,7 @@
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
-    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
+    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/2.6.0.v20130815-a4708b6_M2/</eclipselink-repo.url>
     
     
   </properties>
@@ -70,6 +70,7 @@
       <url>${platform-repo.url}</url>
       <layout>p2</layout>
     </repository>
+    
     <repository>
       <id>emf</id>
       <url>${emf-repo.url}</url>
