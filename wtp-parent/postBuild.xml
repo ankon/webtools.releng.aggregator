@@ -191,6 +191,14 @@
 			property="repo.tests.found"/>
 		
 		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
+		<copy todir="${dest.path}/repocopy">
+			<fileset dir="../">
+				<patternset id="wtp-repo">
+					<include name="webtools.repositories/*/target/repository/**/*" />
+				</patternset>
+			</fileset>
+		</copy>
+		
 		<echo message="Uncompress P2 repositories" />
 		<if>
 			<available file="${dest.path}/${build.dist}-repo-${build}.zip" />
