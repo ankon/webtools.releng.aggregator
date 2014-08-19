@@ -104,7 +104,7 @@
       <layout>p2</layout>
     </repository>
     <repository>
-      <id>eclipselink</id>
+      <id>eclipselink-milestone</id>
       <url>${eclipselink-repo.url-milestone}</url>
       <layout>p2</layout>
     </repository>
