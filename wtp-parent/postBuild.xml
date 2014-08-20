@@ -119,6 +119,13 @@
 		
 		<!--10) Files Count-->
 		<property name="files.count" value="${dest.path}/files.count" />
+		
+		<!--11) Files Count-->
+		<property name="repo.dir" value="webtools.repositories/repository/target/repository/" />
+		
+		<!--12) Files Count-->
+		<property name="repo.unit.dir" value="webtools.repositories/repositoryunittests/target/repository/" />
+				
 				
 		<!--Additional information for the user-->
 		<switch value="${build.type}">
@@ -138,6 +145,9 @@
 		<echo message=":::Source directories:::" />		
 		<echo message="Log Directory....................[${log.path}]" />
 		<echo message="Templates Directory..............[${template.dir}]" />
+		<echo message="Repository Directory.............[${repo.dir}]" />
+		<echo message="Repository Test Unit Directory...[${repo.unit.dir}]" />
+						
 		<echo message="" />
 		<echo message=":::Destiny directories:::" />		
 		<echo message="download.eclipse.org Directory...[${wtp.committers}]" />
@@ -190,31 +200,33 @@
 		<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip"  
 			property="repo.tests.found"/>
 		
-		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
-		<copy todir="${dest.path}/repocopy">
-			<fileset dir="../">
-				<patternset id="wtp-repo">
-					<include name="webtools.repositories/*/target/repository/**/*" />
-				</patternset>
-			</fileset>
-		</copy>
-		
-		<echo message="Uncompress P2 repositories" />
+		<!-- 3) Copy P2 repos  for developers and consumers commodity -->
+		<echo message="Copying P2 repositories" />
 		<if>
-			<available file="${dest.path}/${build.dist}-repo-${build}.zip" />
+			<available file="../${repo.dir}" />
 			<then>
-				<unzip src = "${dest.path}/${build.dist}-repo-${build}.zip" 
-					dest="${dest.path}/repository" />
+				<copy todir="${dest.path}/repository">
+					<fileset dir="../${repo.dir}">
+						<patternset id="wtp-repo">
+							<include name="**/*" />
+						</patternset>
+					</fileset>
+				</copy>
 			</then>
 			<else>
-				<echo message="P2 Repo ZIP not found..." />
+				<echo message="P2 Repo not found..." />
 			</else>
 		</if>
 		<if>
-			<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip" />
+			<available file="../${repo.unit.dir}" />
 			<then>
-				<unzip src = "${dest.path}/${build.dist}-tests-repo-${build}.zip" 
-					dest="${dest.path}/repositoryunittests" />
+				<copy todir="${dest.path}/repositoryunittests">
+					<fileset dir="../${repo.unit.dir}">
+						<patternset id="wtp-repo-unit">
+							<include name="**/*" />
+						</patternset>
+					</fileset>
+				</copy>		
 			</then>
 			<else>
 				<echo message="P2 Tests Repo ZIP not found..." />
