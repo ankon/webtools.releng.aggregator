@@ -119,13 +119,6 @@
 		
 		<!--10) Files Count-->
 		<property name="files.count" value="${dest.path}/files.count" />
-		
-		<!--11) Files Count-->
-		<property name="repo.dir" value="webtools.repositories/repository/target/repository/" />
-		
-		<!--12) Files Count-->
-		<property name="repo.unit.dir" value="webtools.repositories/repositoryunittests/target/repository/" />
-				
 				
 		<!--Additional information for the user-->
 		<switch value="${build.type}">
@@ -145,9 +138,6 @@
 		<echo message=":::Source directories:::" />		
 		<echo message="Log Directory....................[${log.path}]" />
 		<echo message="Templates Directory..............[${template.dir}]" />
-		<echo message="Repository Directory.............[${repo.dir}]" />
-		<echo message="Repository Test Unit Directory...[${repo.unit.dir}]" />
-						
 		<echo message="" />
 		<echo message=":::Destiny directories:::" />		
 		<echo message="download.eclipse.org Directory...[${wtp.committers}]" />
@@ -200,13 +190,11 @@
 		<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip"  
 			property="repo.tests.found"/>
 		
-		<!-- 3) Copy P2 repos  for developers and consumers commodity -->
-		<echo message="Copying P2 repositories" />
-		
+		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
 		<copy todir="${dest.path}/repocopy">
-			<fileset dir="../${repo.dir}">
+			<fileset dir="../">
 				<patternset id="wtp-repo">
-					<include name="**/*" />
+					<include name="webtools.repositories/*/target/repository/**/*" />
 				</patternset>
 			</fileset>
 		</copy>
@@ -329,6 +317,15 @@
 	<target name = "process-logs" >
 		<echo message="Compressing and copying the full log..." />
 		<zip basedir= "${log.path}" file="${log.path}/log" destfile="${full.log}" />
+		
+		<echo message="Getting all the component logs" />
+		<copy todir="${dest.path}/logs">
+			<fileset dir="../">
+				<patternset id="component-logs">
+					<include name="**/target/work/data/.metadata/.log" />
+				</patternset>
+			</fileset>
+		</copy>
 	</target>
 		
 	<target name = "prepare-page-files">
