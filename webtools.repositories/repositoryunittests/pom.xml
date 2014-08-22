@@ -38,12 +38,10 @@
         </executions>
         <configuration>
           <source>
-          <!--  
             <repository>
               <url>${project.baseUri}/../dali4x.tests/target/repository</url>
               <layout>p2</layout>
             </repository>
-            -->
             <repository>
               <url>${project.baseUri}/../jst4x.tests/target/repository</url>
               <layout>p2</layout>
