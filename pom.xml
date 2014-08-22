@@ -27,7 +27,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <excludes>
-            <exclude>**/org/eclipse/jst/server/core/tests/AllTests.java</exclude>
+            <exclude>%regex[org.eclipse.jst.server.core.tests.AllTests]</exclude>
           </excludes>
         </configuration>
       </plugin>
