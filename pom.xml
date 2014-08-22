@@ -19,6 +19,20 @@
   <artifactId>wtp-aggregator</artifactId>
   <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/org/eclipse/jst/server/core/tests/AllTests.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
   <modules>
     <module>wtp-parent</module>
