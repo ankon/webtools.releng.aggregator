@@ -28,7 +28,9 @@
         <version>2.17</version>
         <configuration>
           <excludes>
-            <exclude>**/AllTests.java</exclude>
+            <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
+            <exclude>**/JaxbCoreMiscTests.java</exclude>
+            <exclude>**/jst/server/core/tests/AllTests.java</exclude>
           </excludes>
         </configuration>
       </plugin>
