@@ -321,8 +321,11 @@
 		<echo message="Getting all the component logs" />
 		<copy todir="${dest.path}/logs">
 			<fileset dir="../">
-				<patternset id="component-logs">
+				<patternset id="logs">
 					<include name="**/target/work/data/.metadata/.log" />
+					<include name="**/target/work/configuration/*.log" />
+					<include name="**/*.log" />
+										
 				</patternset>
 			</fileset>
 		</copy>
