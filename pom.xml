@@ -28,9 +28,13 @@
         <version>2.17</version>
         <configuration>
           <excludes>
+          	<!--  
             <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
             <exclude>**/JaxbCoreMiscTests.java</exclude>
-            <exclude>**/jst/server/core/tests/AllTests.java</exclude>
+            -->
+            <exclude>**/JptJpaCoreResourceModelTests.java</exclude>
+            <exclude>**/JptJpaCoreModelTests.java</exclude>
+            
           </excludes>
         </configuration>
       </plugin>
