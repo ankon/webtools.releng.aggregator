@@ -23,11 +23,21 @@
   <packaging>eclipse-repository</packaging>
   
   <properties>
-  	<skipTests>true</skipTests>
+    <skipTests>true</skipTests>
   </properties>
-
+  
   <build>
     <plugins>
+  	  <!-- Skip tests -->  
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.17</version>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+    	
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-repository-plugin</artifactId>
