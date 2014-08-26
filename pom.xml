@@ -32,8 +32,20 @@
             <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
             <exclude>**/JaxbCoreMiscTests.java</exclude>
             -->
-            <exclude>**/JptJpaCoreResourceModelTests.java</exclude>
             <exclude>**/JptJpaCoreModelTests.java</exclude>
+            <exclude>**/JptJpaCoreResourceModelTests.java</exclude>
+            <exclude>**/JptJpaCoreContextModelTests.java</exclude>
+            <exclude>**/JptJpaCoreMiscTests.java</exclude>
+            
+            <exclude>**/ELJaxbCoreResourceModelTests.java</exclude>
+            <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
+            <exclude>**/ELJaxbCoreMiscTests.java</exclude>
+            
+            <exclude>**/JaxbCoreResourceModelTests.java</exclude>
+            <exclude>**/JaxbCoreContextModelTests.java</exclude>
+            <exclude>**/JaxbCoreUtilityTests.java</exclude>
+            <exclude>**/JaxbCoreMiscTests.java</exclude>
+            
             
           </excludes>
         </configuration>
