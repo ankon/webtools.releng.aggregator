@@ -20,39 +20,6 @@
   <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-        <configuration>
-          <excludes>
-          	<!--  
-            <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
-            <exclude>**/JaxbCoreMiscTests.java</exclude>
-            -->
-            <exclude>**/JptJpaCoreModelTests.java</exclude>
-            <exclude>**/JptJpaCoreResourceModelTests.java</exclude>
-            <exclude>**/JptJpaCoreContextModelTests.java</exclude>
-            <exclude>**/JptJpaCoreMiscTests.java</exclude>
-            
-            <exclude>**/ELJaxbCoreResourceModelTests.java</exclude>
-            <exclude>**/ELJaxbCoreContextModelTests.java</exclude>
-            <exclude>**/ELJaxbCoreMiscTests.java</exclude>
-            
-            <exclude>**/JaxbCoreResourceModelTests.java</exclude>
-            <exclude>**/JaxbCoreContextModelTests.java</exclude>
-            <exclude>**/JaxbCoreUtilityTests.java</exclude>
-            <exclude>**/JaxbCoreMiscTests.java</exclude>
-            
-            
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
   <modules>
     <module>wtp-parent</module>
     <module>webtools.releng</module>
