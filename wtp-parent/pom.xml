@@ -250,7 +250,12 @@
           <artifactId>tycho-surefire-plugin</artifactId>
           <version>${tycho.version}</version>
           <configuration>
-          		<skipTests>${skipWithIssues}</skipTests>
+          		<!--<skipTests>${skipWithIssues}</skipTests>-->
+          		<excludes>
+          			<exclude>**/org/eclipse/jst/server/core/tests/AllTests.java</exclude>
+          			<exclude>**/JptJpaCoreModelTests.java</exclude>
+          			<exclude>**/JaxbCoreUtilityTests.java</exclude>
+          		</excludes>
         	</configuration>
         </plugin>
         <plugin>
