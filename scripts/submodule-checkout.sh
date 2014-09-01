@@ -17,6 +17,7 @@ do
 
     pushd $repository
     git checkout $branch
+    git pull
     popd
 done
 
