@@ -119,6 +119,16 @@
 		
 		<!--10) Files Count-->
 		<property name="files.count" value="${dest.path}/files.count" />
+		
+		<!--11) Logs Destiny-->
+		<property name="logs.dest" value="${dest.path}/logs" />
+		
+		<!--12) Repository Directory-->
+		<property name="repo.dir" value="webtools.repositories/repository/target/repository/" />
+			
+		<!--13) Unit Test Repository Directory-->
+		<property name="repo.unit.dir" value="webtools.repositories/repositoryunittests/target/repository/" />
+					
 				
 		<!--Additional information for the user-->
 		<switch value="${build.type}">
@@ -138,12 +148,15 @@
 		<echo message=":::Source directories:::" />		
 		<echo message="Log Directory....................[${log.path}]" />
 		<echo message="Templates Directory..............[${template.dir}]" />
+		<echo message="Repository Directory.............[${repo.dir}]" />
+		<echo message="Repository Test Unit Directory...[${repo.unit.dir}]" />		
 		<echo message="" />
 		<echo message=":::Destiny directories:::" />		
 		<echo message="download.eclipse.org Directory...[${wtp.committers}]" />
 		<echo message="WTP Destination Path.............[${dest.path}]" />
 		<echo message="Test Result Directory ...........[${test.results}]" />
-		<echo message="Full log path........ ...........[${full.log}]" />					
+		<echo message="Logs Directory ..................[${logs.dest}]" />
+		<echo message="Full log path........ ...........[${full.log}]" />			
 		<echo message="" />	
 		<echo message=":::Build Details:::" />			
 		<echo message="Build ID.........................[${build.id}]" />
@@ -191,37 +204,31 @@
 			property="repo.tests.found"/>
 		
 		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
-		<copy todir="${dest.path}/repocopy">
-			<fileset dir="../">
-				<patternset id="wtp-repo">
-					<include name="webtools.repositories/*/target/repository/**/*" />
-				</patternset>
-			</fileset>
-		</copy>
-		
-		<echo message="Uncompress P2 repositories" />
+		<echo message="Copying P2 repositories" />
 		<if>
-			<available file="${dest.path}/${build.dist}-repo-${build}.zip" />
+			<available file="../${repo.dir}" />
 			<then>
-				<unzip src = "${dest.path}/${build.dist}-repo-${build}.zip" 
-					dest="${dest.path}/repository" />
+				<copy todir="${dest.path}/repository">
+					<fileset dir="../${repo.dir}" includes="**/*" />
+				</copy>
 			</then>
 			<else>
-				<echo message="P2 Repo ZIP not found..." />
+				<echo message="P2 Repo not found..." />
 			</else>
 		</if>
 		<if>
-			<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip" />
+			<available file="../${repo.unit.dir}" />
 			<then>
-				<unzip src = "${dest.path}/${build.dist}-tests-repo-${build}.zip" 
-					dest="${dest.path}/repositoryunittests" />
+				<copy todir="${dest.path}/repositoryunittests">
+					<fileset dir="../${repo.unit.dir}" includes="**/*" />
+				</copy>
 			</then>
 			<else>
 				<echo message="P2 Tests Repo ZIP not found..." />
 			</else>
 		</if>
 	</target>
-
+	
 	<target name="generate-checksum"
 			description="Generates the MD5 and SHA1 checksums for the P2 ZIP Files">
 		<!--1) Generate the MD5 for all the ZIP files, store the result in the checksum dir-->
@@ -319,12 +326,25 @@
 		<zip basedir= "${log.path}" file="${log.path}/log" destfile="${full.log}" />
 		
 		<echo message="Getting all the component logs" />
-		<copy todir="${dest.path}/logs">
+		<copy todir="${logs.dest}">
 			<fileset dir="../">
-				<patternset id="component-logs">
+				<patternset id="logs">
 					<include name="**/target/work/data/.metadata/.log" />
+					<include name="**/target/work/configuration/*.log" />
+					<include name="**/*.log" />	
 				</patternset>
 			</fileset>
+			<mapper>
+				<mapper type="regexp" 
+					from="(.*)(/target/work/data/\.metadata/\.log)" 
+					to="\1.log" />
+				<mapper type="regexp"
+					from="(.*)(/target/work/configuration/)(\d+\.log)" 
+					to="\1-\3" />
+				<mapper type="regexp"
+					from="(.*/)(\D+\.log)" 
+					to="\1\2" />
+			</mapper>
 		</copy>
 	</target>
 		
