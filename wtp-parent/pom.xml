@@ -342,7 +342,7 @@
             <artifactId>target-platform-configuration</artifactId>
             <version>${tycho.version}</version>
             <configuration>
-              <includePackedArtifacts>false</includePackedArtifacts>
+              <includePackedArtifacts>true</includePackedArtifacts>
             </configuration>
           </plugin>
           <plugin>
@@ -355,7 +355,7 @@
                 <goals>
                   <goal>normalize</goal>
                 </goals>
-                <phase>verify</phase>
+                <phase>package</phase>
               </execution>
             </executions>
           </plugin>
@@ -369,7 +369,7 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
-                <phase>verify</phase>
+                <phase>package</phase>
               </execution>
             </executions>
           </plugin>
@@ -383,7 +383,7 @@
                 <goals>
                   <goal>pack</goal>
                 </goals>
-                <phase>verify</phase>
+                <phase>package</phase>
               </execution>
             </executions>
           </plugin>
@@ -397,7 +397,7 @@
                 <goals>
                   <goal>p2-metadata</goal>
                 </goals>
-                <phase>verify</phase>
+                <phase>package</phase>
               </execution>
             </executions>
             <configuration>
