@@ -143,25 +143,6 @@
 
   <build>
     <plugins>
-		<plugin>
-        	<artifactId>maven-antrun-plugin</artifactId>
-        	<version>1.7</version>
-        	<executions>
-          		<execution>
-            		<phase>generate-sources</phase>
-            		<configuration>
-              			<tasks>
-              				<!-- This ant scriptlet updates the Version ID displayed to the user
-              				when installing WTP.  -->
-               				<replace dir="../" value="${wtp-build-version-id}" token="@buildversionid@">
-		  						<include name="**/category.xml"/>
-							</replace>
-              			</tasks>
-            		</configuration>
-          	</execution>
-        </executions>
-      </plugin>
-    	
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
