@@ -56,7 +56,7 @@
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
     <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
     
-    <!--  <skipWithIssues>true</skipWithIssues> -->
+    <wtp-version>3.7.0</wtp-version>
   </properties>
 
   <repositories>
@@ -143,6 +143,28 @@
 
   <build>
     <plugins>
+		<plugin>
+        	<artifactId>maven-antrun-plugin</artifactId>
+        	<version>1.7</version>
+        	<executions>
+          		<execution>
+            		<phase>generate-sources</phase>
+            		<configuration>
+              			<tasks>
+              				<!-- This ant scriptlet updates the Version ID displayed to the user
+              				when installing WTP.  -->
+               				<replace dir="../" value="${wtp-version}" token="@buildversionid@">
+		  						<include name="**/category.xml"/>
+							</replace>
+              			</tasks>
+            		</configuration>
+            		<goals>
+              			<goal>run</goal>
+            		</goals>
+          </execution>
+        </executions>
+      </plugin>
+    	
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
