@@ -22,4 +22,4 @@ webtools.sourceediting.xsl: master
 webtools.sourceediting.xsl.tests: master
 webtools.webservices: master
 webtools.webservices.axis2: master
-webtools.webservices.jaxws: master
+webtools.webservices.jaxws: R3_6_maintenance
