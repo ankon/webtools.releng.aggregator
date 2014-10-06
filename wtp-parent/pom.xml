@@ -45,7 +45,8 @@
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/0.11.1</graphiti-repo.url>
-    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/updates/</eclipselink-repo.url>
+    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
+    <eclipselink-repo.url2>http://download.eclipse.org/rt/eclipselink/updates/</eclipselink-repo.url2>
     
     <!-- I need to verify if Jetty 9 is for Mars or will be used for 3.6.1 too -->
     <jetty-repo.url>http://www.eclipse.org/external/jetty/updates/jetty-bundles-8.x/8.1.3.v20120522/</jetty-repo.url>
@@ -102,6 +103,11 @@
     <repository>
       <id>eclipselink</id>
       <url>${eclipselink-repo.url}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>eclipselink2</id>
+      <url>${eclipselink-repo.url2}</url>
       <layout>p2</layout>
     </repository>
     <repository>
