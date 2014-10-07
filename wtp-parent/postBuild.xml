@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="post-build">
+<project default="main">
 	<taskdef resource="net/sf/antcontrib/antlib.xml" />
 	<property name="library.dir" value="./libs"/>
 	<path id="libraries">
@@ -385,6 +385,19 @@
 				
 		<touch file="${dest.path}/index.php"/>
 	</target>
+	
+	<target name ="main">
+			<if>
+				<equals arg1="${publish}" arg2="true" />
+				<then>
+					<echo message="Starting the publishing..."/>
+					<antcall target="post-build" />
+				</then>
+				<else>
+					<echo message="The build won't be published to committers page. If you want to publish there, use: -Dpublish=true."/>
+				</else>
+			</if>
+		</target>
 	
 	<!-- this must be done when everything is ready -->
 	<target name="post-build"
