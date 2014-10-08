@@ -92,7 +92,7 @@
 		</tstamp>
 		
 		<!--5) Build distribution, to differentiate e4 from old distributions -->
-		<property name="build.dist" value="wtp4x" />
+		<property name="build.dist" value="wtp" />
 		<property name="build" value="${build.type}-${wtp.version}-${build.id}" />
 				
 
