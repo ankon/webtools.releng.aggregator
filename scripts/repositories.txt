@@ -11,7 +11,7 @@ webtools.jsf: R3_6_maintenance
 webtools.jsf.docs: master
 webtools.jsf.tests: master
 webtools.releng: R3_6_maintenance
-webtools.servertools: R3_6_maintenance
+webtools.servertools: R3_6_1_patches
 webtools.servertools.docs: master
 webtools.servertools.tests: master
 webtools.sourceediting: master

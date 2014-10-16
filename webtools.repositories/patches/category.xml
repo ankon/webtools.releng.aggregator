@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+
+    <feature id="org.eclipse.wst.server_core.feature.patch" >
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+   
+    <feature id="org.eclipse.wst.server_core.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+   
+    <category-def
+        name="Web Tools Platform (WTP) @buildversionid@"
+        label="Web Tools Platform (WTP) @buildversionid@">
+        <description>
+            These features provide functionality with the executable code only and are recommended for most users.
+        </description>
+    </category-def>
+</site>
