@@ -23,7 +23,8 @@
 
   <properties>
     <tycho.version>0.20.0</tycho.version>
-    <tycho-extras.version>0.20.0</tycho-extras.version>
+    <tycho-version>${tycho.version}</tycho-version>
+    <tycho-extras.version>${tycho.version}</tycho-extras.version>
     <tycho-repo.url>https://oss.sonatype.org/content/repositories/public/</tycho-repo.url>
 
     <cbi-plugins.version>1.0.5</cbi-plugins.version>
@@ -118,6 +119,11 @@
     <repository>
       <id>wtp-repo-patched</id>
       <url>${wtp-patched}/repository</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>wtp-repo-tests</id>
+      <url>${wtp-patched}/repositoryunittests</url>
       <layout>p2</layout>
     </repository>
   </repositories>
