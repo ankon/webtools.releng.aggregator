@@ -24,9 +24,9 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
-				<version>${tycho.version}</version>
+				<version>${tycho-version}</version>
 				<configuration>
-					<finalName>patches-repo-P-${unqualifiedVersion}-${qualifiedVersion}</finalName>
+					<finalName>patches-repo-P-${unqualifiedVersion}-${BUILD_ID}</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
