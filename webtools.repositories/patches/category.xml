@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 
+	<!-- List of feature patches to be included -->
     <feature id="org.eclipse.wst.server_core.feature.patch" >
-        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+        <category name="org.eclipse.webtools.patches"/>
     </feature>
    
-    <feature id="org.eclipse.wst.server_core.feature">
-        <category name="Web Tools Platform (WTP) @buildversionid@"/>
-    </feature>
+    <!-- List of features to be patched.
+    NOTE: They should be uncategorized in order to ease the filtering when
+    creating the final repository
+     -->
+    <feature id="org.eclipse.wst.server_core.feature" />
    
+   <!-- WTP Patch Category -->
     <category-def
-        name="Web Tools Platform (WTP) @buildversionid@"
-        label="Web Tools Platform (WTP) @buildversionid@">
+        name = "org.eclipse.webtools.patches"
+        label="Web Tools Platform (WTP) Patches @buildversionid@">
         <description>
-            These features provide functionality with the executable code only and are recommended for most users.
+            These features provide all the public patches for WebTools @buildversionid@ available at the build date. 
         </description>
     </category-def>
 </site>

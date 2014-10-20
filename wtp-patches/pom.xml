@@ -16,10 +16,17 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<!-- WTP Patch Repository -->
+		<!-- WTP Patch Repository
+		We require two, a temporal one to supply all the dependencies for the P2 repository
+		and the final repository, which only includes the feature patches and the
+		bundle updated.
+		-->
 		<module>../webtools.repositories/patches</module>
+		<module>../webtools.repositories/patch-repository</module>
+		
 
 		<!-- Tests
+		This is still under progress
 		<module>tests</module>
 		 -->
 		<!-- List of the components providing feature patches -->
