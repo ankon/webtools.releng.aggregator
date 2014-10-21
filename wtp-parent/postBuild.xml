@@ -246,7 +246,7 @@
 					<mapper>
 						<mapper type="regexp" 
 							from="patches-repo-P-.*\.zip" 
-							to="patches-repo-P-${wtp.version}-${build}.zip" />
+							to="${build.dist}-repo-${build}.zip" />
 						</mapper>
 					</move>
 			</else>
