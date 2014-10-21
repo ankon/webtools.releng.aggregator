@@ -83,7 +83,7 @@
 						<configuration>
 							<target>
 								<zip
-									destfile="${project.build.directory}/patches-repo-P-${unqualifiedVersion}-${BUILD_ID}.zip"
+									destfile="${project.build.directory}/patches-repo-P-${unqualifiedVersion}.zip"
 									basedir="${project.build.directory}/repository" />
 							</target>
 						</configuration>

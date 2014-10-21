@@ -82,7 +82,7 @@
 						<propertyregex
 							property="wtp.version"
 							input="${repo.id}"
-							regexp=".*patches-repo-P-(.*)-(.*)-(.*)\.zip" 
+							regexp=".*patches-repo-P-(.*)\.zip" 
 							select="\1" 
 							casesensitive="false" />
 						
@@ -245,7 +245,7 @@
 					<fileset dir="${dest.path}" />
 					<mapper>
 						<mapper type="regexp" 
-							from="patches-repo-P-(.*)-.*\.zip" 
+							from="patches-repo-P-.*\.zip" 
 							to="patches-repo-P-${wtp.version}-${build}.zip" />
 						</mapper>
 					</move>
