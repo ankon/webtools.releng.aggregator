@@ -2,7 +2,7 @@ webtools.common: R3_6_1
 webtools.common.fproj: R3_6_1
 webtools.common.snippets: R3_6_1
 webtools.common.tests: R3_6_1
-webtools.dali: master
+webtools.dali: R3_4_1a
 webtools.ejb: R3_6_1
 webtools.javaee: R3_6_1
 webtools.javaee.tests: R3_6_1
@@ -14,12 +14,12 @@ webtools.releng: R3_6_maintenance
 webtools.servertools: R3_6_1
 webtools.servertools.docs: master
 webtools.servertools.tests: master
-webtools.sourceediting: master
-webtools.sourceediting.tests: master
-webtools.sourceediting.xpath: master
-webtools.sourceediting.xpath.tests: master
-webtools.sourceediting.xsl: master
-webtools.sourceediting.xsl.tests: master
+webtools.sourceediting: R3_6_1
+webtools.sourceediting.tests: R3_6_1
+webtools.sourceediting.xpath: R3_6_1
+webtools.sourceediting.xpath.tests: R3_6_1
+webtools.sourceediting.xsl: R3_6_1
+webtools.sourceediting.xsl.tests: R3_6_1
 webtools.webservices: R3_6_1
 webtools.webservices.axis2: R3_6_1
 webtools.webservices.jaxws: R3_6_1
