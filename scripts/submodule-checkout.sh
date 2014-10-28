@@ -8,7 +8,10 @@
 #
 # This script should be called from the root of the aggregator repo.
 
-IFS=$'\n' read -d '' -r -a repos < scripts/repositories.txt
+# There are two list of repositories, the "normal" and the "patches" the
+# In the patches one, only those components that had requested to be included
+# in the patch will be used, saving time in the preparation of the environment
+IFS=$'\n' read -d '' -r -a repos < scripts/patches-repositories.txt
 
 for i in "${repos[@]}"
 do

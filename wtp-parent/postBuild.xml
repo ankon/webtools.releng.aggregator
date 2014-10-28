@@ -47,34 +47,58 @@
 
 		<!--2) We need the WTP build branch, we will get it from the repository file; 
 		from there we strip out the irrelevant information (path, qualifier, etc.).-->
-		<path id="repo.path">
-			<fileset dir="../webtools.repositories/repository/target/">
-				<include name="repository-*.zip" />
-			</fileset>
-		</path>
-		
-		<property name="repo.id" refid="repo.path" />
-		<propertyregex
-			property="wtp.version"
-			input="${repo.id}"
-			regexp=".*repository-(.*)-v.*.zip" 
-			select="\1" 
-			casesensitive="false" />
-		
-		<condition property="repo.exists">
-		  <isset property="${wtp.version}"/>
-		</condition>
-		<fail message="The repository ZIP file does not exist. It is not possible to continue the publishing."
-		      unless="wtp.version"/>
-		
-		<!--2.5, The build product is to identify Releaseas from Patches
-		Right now, this script is not prepared for patches, so we hardcoded to R
-		in the future this will be obtained from the Hudson Job
-		-->
-		<property name="build.product" value="R" />
+		<if>
+			<available file="../webtools.repositories/repository/target/" type="dir" />
+			<then>
+				<path id="repo.path">
+					<fileset dir="../webtools.repositories/repository/target/">
+						<include name="repository-*.zip" />
+					</fileset>
+				</path>
 						
-		<!-- 2.6, The branch is the version with the prefix R-->
-		<property name="build.branch" value="${build.product}${wtp.version}" />
+				<property name="repo.id" refid="repo.path" />
+				<propertyregex
+					property="wtp.version"
+					input="${repo.id}"
+					regexp=".*repository-(.*)-v.*.zip" 
+					select="\1" 
+					casesensitive="false" />
+				<!--We set up some properties that depend on the type of build-->
+				<property name="build.dist" value="wtp4x" />
+				<property name="repo.dir" value="webtools.repositories/repository/target/repository/" />			
+				<property name="repo.unit.dir" value="webtools.repositories/repositoryunittests/target/repository/" />
+			</then>
+			<else>
+				<if>
+					<available file="../webtools.repositories/patch-repository/target/" type="dir" />
+					<then>
+						<path id="patch.path">
+							<fileset dir="../webtools.repositories/patch-repository/target/">
+								<include name="patches-repo-P-*.zip" />
+							</fileset>
+						</path>
+										
+						<property name="repo.id" refid="patch.path" />
+						<propertyregex
+							property="wtp.version"
+							input="${repo.id}"
+							regexp=".*patches-repo-P-(.*)\.zip" 
+							select="\1" 
+							casesensitive="false" />
+						
+						<property name="build.dist" value="patches" />
+						<property name="repo.dir" value="webtools.repositories/patch-repository/target/repository/" />
+						<property name="repo.unit.dir" value="[NO USED]" />
+					</then>
+					<else>
+						<fail message="The repository ZIP file does not exist. It is not possible to continue the publishing."/>
+					</else>
+				</if>
+			</else>
+		</if>
+								
+		<!-- 2.1, The branch is the version with the prefix R-->
+		<property name="build.branch" value="R${wtp.version}" />
 				
 
 		<!--3) The build type must be defined in the build configuration
@@ -92,7 +116,6 @@
 		</tstamp>
 		
 		<!--5) Build distribution, to differentiate e4 from old distributions -->
-		<property name="build.dist" value="wtp" />
 		<property name="build" value="${build.type}-${wtp.version}-${build.id}" />
 				
 
@@ -122,13 +145,6 @@
 		
 		<!--11) Logs Destiny-->
 		<property name="logs.dest" value="${dest.path}/logs" />
-		
-		<!--12) Repository Directory-->
-		<property name="repo.dir" value="webtools.repositories/repository/target/repository/" />
-			
-		<!--13) Unit Test Repository Directory-->
-		<property name="repo.unit.dir" value="webtools.repositories/repositoryunittests/target/repository/" />
-					
 				
 		<!--Additional information for the user-->
 		<switch value="${build.type}">
@@ -137,6 +153,9 @@
 		  </case>
 		  <case value="M">
 		  	<property name="build.type.desc" value = "Maintenance" />
+		  </case>
+		  <case value="P">
+			<property name="build.type.desc" value = "Patch" />
 		  </case>
 		  <default>
 		  	<property name="build.type.desc" value = "Initial not recognized" />
@@ -162,49 +181,77 @@
 		<echo message="Build ID.........................[${build.id}]" />
 		<echo message="Build ...........................[${build}]" />
 		<echo message="Build Distribution...............[${build.dist}]" />
-		<echo message="Build product....................[${build.product}]" />
 		<echo message="Build branch.....................[${build.branch}] " />
 		<echo message="Build type.......................[${build.type}] (${build.type.desc})" />
 		<echo message="Build date.......................[${build.date}]" />
 		<echo message="" />	
 		<echo message=":::Additional Information:::" />
-		<echo message="Files Count path.................[${files.count}]" />
-				
-				
+		<echo message="Files Count path.................[${files.count}]" />	
 	</target>
 
 	<target name="process-artifacts"
 				description="Copies the artifacts generated by the build to the the Download Machine">
 		<echo message="Moving artifacts..." />
-		<!--1) We need to copy the artifacts generated by maven-->
-		<copy todir="${dest.path}" flatten="true">
-			<fileset dir="../">
-				<patternset id="wtp-artifacts">
-					<include name="webtools.repositories/*/target/*.zip" />
-				</patternset>
-			</fileset>
-		</copy>
-		<echo message="Renaming ZIP files" />
-		<!--2)WTP P2 Repository, renaming -->
-		<move todir="${dest.path}">
-			<fileset dir="${dest.path}" />
-			<mapper>
-				<mapper type="regexp" 
-					from=".*repository-(.*)-v.*.zip" 
-					to="${build.dist}-repo-${build}.zip" />
-				<mapper type="regexp"
-					from=".*repositoryunittests.*.zip" 
-					to="${build.dist}-tests-repo-${build}.zip" />
-			</mapper>
-		</move>
 		
-		<available file="${dest.path}/${build.dist}-repo-${build}.zip"  
-			property="repo.found"/>
-		<available file="${dest.path}/${build.dist}-tests-repo-${build}.zip"  
-			property="repo.tests.found"/>
+		<if>
+			<not><equals arg1="${build.type}" arg2="P" /></not>
+			<then>
+				<!--1) We need to copy the artifacts generated by maven-->
+						<copy todir="${dest.path}" flatten="true">
+							<fileset dir="../">
+								<patternset id="wtp-artifacts">
+									<include name="webtools.repositories/*/target/*.zip" />
+								</patternset>
+							</fileset>
+						</copy>
+				<echo message="Renaming ZIP files" />
+				<!--2)WTP P2 Repository, renaming -->
+				<move todir="${dest.path}">
+					<fileset dir="${dest.path}" />
+					<mapper>
+						<mapper type="regexp" 
+							from=".*repository-(.*)-v.*.zip" 
+							to="${build.dist}-repo-${build}.zip" />
+						<mapper type="regexp"
+							from=".*repositoryunittests.*.zip" 
+							to="${build.dist}-tests-repo-${build}.zip" />
+					</mapper>
+				</move>
+					
+				<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
+				<echo message="Copying P2 repositories" />
+				<if>
+					<available file="../${repo.unit.dir}" />
+					<then>
+						<copy todir="${dest.path}/repositoryunittests">
+							<fileset dir="../${repo.unit.dir}" includes="**/*" />
+						</copy>
+					</then>
+					<else>
+						<echo message="P2 Tests Repo ZIP not found..." />
+					</else>
+				</if>
+			</then>
+			<else>
+				<copy todir="${dest.path}" flatten="true">
+					<fileset dir="../">
+						<patternset id="wtp-artifacts">
+							<include name="webtools.repositories/patch-repository/target/*.zip" />
+						</patternset>
+					</fileset>
+				</copy>
+				
+				<move todir="${dest.path}">
+					<fileset dir="${dest.path}" />
+					<mapper>
+						<mapper type="regexp" 
+							from="patches-repo-P-.*\.zip" 
+							to="${build.dist}-repo-${build}.zip" />
+						</mapper>
+					</move>
+			</else>
+		</if>
 		
-		<!-- 3) Uncompress the P2 repo for developers and consumers commodity -->
-		<echo message="Copying P2 repositories" />
 		<if>
 			<available file="../${repo.dir}" />
 			<then>
@@ -213,20 +260,10 @@
 				</copy>
 			</then>
 			<else>
-				<echo message="P2 Repo not found..." />
+				<echo message="P2 Repo [../${repo.dir}] not found..." />
 			</else>
 		</if>
-		<if>
-			<available file="../${repo.unit.dir}" />
-			<then>
-				<copy todir="${dest.path}/repositoryunittests">
-					<fileset dir="../${repo.unit.dir}" includes="**/*" />
-				</copy>
-			</then>
-			<else>
-				<echo message="P2 Tests Repo ZIP not found..." />
-			</else>
-		</if>
+		
 	</target>
 	
 	<target name="generate-checksum"
