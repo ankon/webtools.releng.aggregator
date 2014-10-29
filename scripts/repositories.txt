@@ -14,7 +14,7 @@ webtools.releng: R3_6_1
 webtools.servertools: v20141024_1333
 webtools.servertools.docs: master
 webtools.servertools.tests: master
-webtools.sourceediting: R3_6_2_maintenance
+webtools.sourceediting: R3_6_1
 webtools.sourceediting.tests: R3_6_1
 webtools.sourceediting.xpath: R3_6_1
 webtools.sourceediting.xpath.tests: R3_6_1
