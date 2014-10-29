@@ -6,7 +6,7 @@ webtools.dali: R3_4_1a
 webtools.ejb: R3_6_1
 webtools.javaee: R3_6_1
 webtools.javaee.tests: R3_6_1
-webtools.jsdt: master
+webtools.jsdt: R3_6_1
 webtools.jsf: R3_6_maintenance
 webtools.jsf.docs: R3_6_1
 webtools.jsf.tests: R3_6_1
