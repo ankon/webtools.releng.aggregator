@@ -16,8 +16,8 @@ do
     branch=$(echo $i | cut -f2 -d: | tr -d ' ')
 
     pushd $repository
-    git pull
     git checkout $branch
+    git pull
     popd
 done
 
