@@ -41,7 +41,7 @@
    
     <!-- Mars Updates -->
     <gef-repo.url>https://hudson.eclipse.org/hudson/job/gef-master/lastSuccessfulBuild/artifact/update-site</gef-repo.url>
-    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5-I-builds/I20141021-0800</platform-repo.url>
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M3-201410292000</platform-repo.url>
     <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/I20141023165154/repository/</orbit-repo.url>
     
     <!-- No updates for mars Yet -->
