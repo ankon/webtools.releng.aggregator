@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2014 Eclipse Foundation. All rights reserved. This program 
+	and the accompanying materials are made available under the terms of the 
+	Eclipse Distribution License v1.0 which accompanies this distribution, and 
+	is available at http://www.eclipse.org/org/documents/edl-v10.php Contributors: 
+	Julio C. Chavez - initial implementation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.webtools</groupId>
+		<artifactId>repositories</artifactId>
+		<version>3.6.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.webtools</groupId>
+	<artifactId>patch-repository</artifactId>
+	<version>3.7.0</version>
+	<packaging>eclipse-repository</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<source>
+						<repository>
+							<url>${project.baseUri}/../patches/target/repository</url>
+							<layout>p2</layout>
+						</repository>
+					</source>
+
+					<!-- The final P2 Patch Repository will contain only the features and bundles 
+					under the  [Web Tools Platform (WTP) Patches @buildversionid@] category
+					this is a workaround to avoid include the feature to be patched.-->
+
+					<ius>
+						<iu>
+							<query>
+								<expression type="match">properties[$0] == $1</expression>
+								<parameters>org.eclipse.equinox.p2.name,Web Tools Platform (WTP) Patches @buildversionid@</parameters>
+							</query>
+						</iu>
+					</ius>
+
+					<!-- The destination directory to mirror to. -->
+					<destination>${project.build.directory}/repository</destination>
+					<!-- Whether only strict dependencies should be followed. -->
+					<!-- "strict" means perfect version match -->
+					<followStrictOnly>false</followStrictOnly>
+					<!-- Whether or not to follow optional requirements. -->
+					<includeOptional>false</includeOptional>
+					<!-- Whether or not to follow non-greedy requirements. -->
+					<includeNonGreedy>false</includeNonGreedy>
+					<!-- Filter properties. E.g. filter only one platform -->
+					<!-- Whether to filter the resulting set of IUs to only -->
+					<!-- include the latest version of each IU -->
+					<latestVersionOnly>true</latestVersionOnly>
+					<!-- don't mirror artifacts, only metadata -->
+					<mirrorMetadataOnly>false</mirrorMetadataOnly>
+					<!-- whether to compress the content.xml/artifacts.xml -->
+					<compress>true</compress>
+					<!-- whether to append to the target repository content -->
+					<append>true</append>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<zip
+									destfile="${project.build.directory}/patches-repo-P-${unqualifiedVersion}.zip"
+									basedir="${project.build.directory}/repository" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Disable p2-publisher and p2-repository plugins See: https://bugs.eclipse.org/425146 -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-publisher-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>default-publish-products</id>
+						<phase />
+					</execution>
+					<execution>
+						<id>default-publish-categories</id>
+						<phase />
+					</execution>
+					<execution>
+						<id>default-attach-artifacts</id>
+						<phase />
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<createArtifactRepository>false</createArtifactRepository>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-archive-repository</id>
+						<phase />
+					</execution>
+					<execution>
+						<id>default-assemble-repository</id>
+						<phase />
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>default-install</id>
+						<phase />
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase />
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
