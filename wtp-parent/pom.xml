@@ -241,9 +241,6 @@
                 see: https://bugs.eclipse.org/419030
             -->
             <jgit.dirtyWorkingTree>ignore</jgit.dirtyWorkingTree>
-            <sourceReferences>
-              <generate>true</generate>
-            </sourceReferences>
           </configuration>
         </plugin>
         <plugin>
