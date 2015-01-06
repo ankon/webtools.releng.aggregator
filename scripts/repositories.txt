@@ -2,7 +2,7 @@ webtools.common: master
 webtools.common.fproj: master
 webtools.common.snippets: master
 webtools.common.tests: master
-webtools.dali: R3_4_maintenance
+webtools.dali: master
 webtools.ejb: master
 webtools.javaee: master
 webtools.javaee.tests: master
