@@ -20,6 +20,6 @@ webtools.sourceediting.xpath: master
 webtools.sourceediting.xpath.tests: master
 webtools.sourceediting.xsl: master
 webtools.sourceediting.xsl.tests: master
-webtools.webservices: R3_6_maintenance
+webtools.webservices: master
 webtools.webservices.axis2: R3_6_maintenance
 webtools.webservices.jaxws: R3_6_maintenance
