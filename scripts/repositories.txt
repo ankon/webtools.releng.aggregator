@@ -4,7 +4,7 @@ webtools.common.snippets: master
 webtools.common.tests: master
 webtools.dali: master
 webtools.ejb: master
-webtools.javaee: master
+webtools.javaee: R3_6_maintenance
 webtools.javaee.tests: master
 webtools.jsdt: R3_6_maintenance
 webtools.jsf: R3_6_maintenance
