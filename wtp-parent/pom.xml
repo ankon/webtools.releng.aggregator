@@ -35,7 +35,7 @@
     <!-- dependency repos -->
     <license-repo.url>http://download.eclipse.org/cbi/updates/license</license-repo.url>
     <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.4-M-builds/M-4.4.2RC1-201501141500/</platform-repo.url>
-    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/M20150114164045/repository/</orbit-repo.url>
+    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/</orbit-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.10/</emf-repo.url>
     <gef-repo.url>http://download.eclipse.org/tools/gef/updates/releases</gef-repo.url>
     <dtp-repo.url>http://download.eclipse.org/datatools/updates/1.12/</dtp-repo.url>
