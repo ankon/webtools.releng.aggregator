@@ -10,7 +10,7 @@
     NOTE: They should be uncategorized in order to ease the filtering when
     creating the final repository
      -->
-    <feature id="org.eclipse.wst.server_core.feature" />
+    <feature id="org.eclipse.wst.jsdt.feature.patch" >
    
    <!-- WTP Patch Category -->
     <category-def

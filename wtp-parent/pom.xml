@@ -23,7 +23,6 @@
 
   <properties>
     <tycho.version>0.20.0</tycho.version>
-    <tycho-version>${tycho.version}</tycho-version>
     <tycho-extras.version>${tycho.version}</tycho-extras.version>
     <tycho-repo.url>https://oss.sonatype.org/content/repositories/public/</tycho-repo.url>
 
@@ -52,7 +51,7 @@
     <!-- I need to verify if Jetty 9 is for Mars or will be used for 3.6.1 too -->
     <jetty-repo.url>http://www.eclipse.org/external/jetty/updates/jetty-bundles-8.x/8.1.3.v20120522/</jetty-repo.url>
     
-    <wtp-patched>http://download.eclipse.org/webtools/downloads/drops/R3.6.1/R-3.6.1-20140912000031</wtp-patched>
+    <wtp-patched>http://download.eclipse.org/webtools/downloads/drops/R3.6.3/R-3.6.3-20150216091848</wtp-patched>
   </properties>
 
   <repositories>
@@ -430,7 +429,7 @@
         <!-- By default is integration build, but it can be overriden in CLI
              mvn clean verify -Pbuild-individual-bundles -Dwebtools-repsitory=http://....
         -->
-        <webtools.buildSite>http://download.eclipse.org/webtools/downloads/drops/R3.6.1/R-3.6.1-20140912000031</webtools.buildSite>
+        <webtools.buildSite>http://download.eclipse.org/webtools/downloads/drops/R3.6.3/R-3.6.3-20150216091848</webtools.buildSite>
         <webtools.repository>${webtools.buildSite}/repository</webtools.repository>
         <webtools.testsRepository>${webtools.buildSite}/repositoryunittests</webtools.testsRepository>
       </properties>
