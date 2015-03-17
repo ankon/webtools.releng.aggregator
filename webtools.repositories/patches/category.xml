@@ -8,10 +8,11 @@
    
     <!-- List of features to be patched.
     NOTE: They should be uncategorized in order to ease the filtering when
-    creating the final repository
-     -->
-    <feature id="org.eclipse.wst.jsdt.feature.patch" >
-   
+    creating the final repository.
+    Example:
+    <feature id="org.eclipse.wst.jsdt.feature" />
+    -->
+    <feature id="org.eclipse.wst.jsdt.feature" />
    <!-- WTP Patch Category -->
     <category-def
         name = "org.eclipse.webtools.patches"
