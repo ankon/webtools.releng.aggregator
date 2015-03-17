@@ -2,7 +2,7 @@
 <site>
 
 	<!-- List of feature patches to be included -->
-    <feature id="org.eclipse.wst.server_core.feature.patch" >
+    <feature id="org.eclipse.wst.jsdt.feature.patch" >
         <category name="org.eclipse.webtools.patches"/>
     </feature>
    
