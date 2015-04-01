@@ -30,7 +30,7 @@
 	url = ../../servertools/webtools.servertools.docs
 [submodule "webtools.ejb"]
 	path = webtools.ejb
-	url = ../../ejb/webtools.ejb
+	url = ../../jeetools/webtools.ejb
 [submodule "webtools.webservices"]
 	path = webtools.webservices
 	url = ../../webservices/webtools.webservices
