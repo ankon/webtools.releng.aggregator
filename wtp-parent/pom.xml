@@ -22,11 +22,11 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho.version>0.20.0</tycho.version>
-    <tycho-extras.version>0.20.0</tycho-extras.version>
+    <tycho.version>0.23.0</tycho.version>
+    <tycho-extras.version>0.23.0</tycho-extras.version>
     <tycho-repo.url>https://oss.sonatype.org/content/repositories/public/</tycho-repo.url>
 
-    <cbi-plugins.version>1.0.5</cbi-plugins.version>
+    <cbi-plugins.version>1.1.2</cbi-plugins.version>
     <cbi-repo.url>https://repo.eclipse.org/content/repositories/cbi/</cbi-repo.url>
 
     <!-- baseline comparator -->
