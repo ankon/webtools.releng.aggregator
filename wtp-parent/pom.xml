@@ -24,10 +24,12 @@
   <properties>
     <tycho.version>0.23.0-SNAPSHOT</tycho.version>
     <tycho-extras.version>0.23.0-SNAPSHOT</tycho-extras.version>
-    <tycho-repo.url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</tycho-repo.url>
+    <tycho-repo.url>https://oss.sonatype.org/content/repositories/public/</tycho-repo.url>
+    <tycho-snapshot-repo.url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</tycho-snapshot-repo.url>
 
     <cbi-plugins.version>1.1.2-SNAPSHOT</cbi-plugins.version>
-    <cbi-repo.url>https://repo.eclipse.org/content/repositories/cbi-snapshots/</cbi-repo.url>
+    <cbi-repo.url>https://repo.eclipse.org/content/repositories/cbi/</cbi-repo.url>
+    <cbi-snapshot-repo.url>https://repo.eclipse.org/content/repositories/cbi-snapshots/</cbi-snapshot-repo.url>
 
     <!-- baseline comparator -->
     <comparator.repo>http://download.eclipse.org/webtools/repository/luna</comparator.repo>
@@ -136,6 +138,26 @@
     <pluginRepository>
       <id>cbi-repo</id>
       <url>${cbi-repo.url}</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>tycho-snapshot</id>
+      <url>${tycho-snapshot-repo.url}</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>cbi-snapshot-repo</id>
+      <url>${cbi-snapshot-repo.url}</url>
       <releases>
         <enabled>true</enabled>
       </releases>
