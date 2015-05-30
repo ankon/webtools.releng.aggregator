@@ -43,7 +43,7 @@
    
     <!-- Mars Updates -->
     <gef-repo.url>https://hudson.eclipse.org/hudson/job/gef-master/lastSuccessfulBuild/artifact/update-site</gef-repo.url>
-    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC2a-201505222000</platform-repo.url>
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC3-201505280700</platform-repo.url>
     <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/S20150519210750/repository/</orbit-repo.url>
     <jetty-repo.url>http://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.2.9.v20150224/</jetty-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.11milestones/</emf-repo.url>
@@ -57,7 +57,7 @@
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
-    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/updates/2.6.0.1/</eclipselink-repo.url>
+    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
   </properties>
 
   <repositories>
