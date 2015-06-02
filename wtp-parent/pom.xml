@@ -57,7 +57,7 @@
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
-    <eclipselink-repo.url>http://download.eclipse.org/webtools/eclipselink/milestone-updates/2.6.0.1/</eclipselink-repo.url>
+    <eclipselink-repo.url>http://download.eclipse.org/rt/eclipselink/milestone-updates/</eclipselink-repo.url>
   </properties>
 
   <repositories>
