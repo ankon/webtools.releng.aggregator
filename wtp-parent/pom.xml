@@ -44,7 +44,7 @@
    
     <!-- Mars Updates -->
     <gef-repo.url>http://download.eclipse.org/tools/gef/updates/milestones</gef-repo.url>
-    <platform-repo.url>http://download.eclipse.org/eclipse/downloads/drops4/M20150805-1500</platform-repo.url>
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.5-M-builds/M20150805-1500/</platform-repo.url>
     <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/</orbit-repo.url>
     <jetty-repo.url>http://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.2.9.v20150224/</jetty-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.11milestones/</emf-repo.url>
