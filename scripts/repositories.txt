@@ -1,5 +1,5 @@
 webtools.common: master
-webtools.common.fproj: master
+webtools.common.fproj: R3_7_maintenance
 webtools.common.snippets: master
 webtools.common.tests: master
 webtools.dali: master
