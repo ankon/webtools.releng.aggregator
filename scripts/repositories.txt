@@ -11,9 +11,9 @@ webtools.jsf: master
 webtools.jsf.docs: master
 webtools.jsf.tests: master
 webtools.releng: master
-webtools.servertools: master
-webtools.servertools.docs: master
-webtools.servertools.tests: master
+webtools.servertools: R3_7_maintenance
+webtools.servertools.docs: R3_7_maintenance
+webtools.servertools.tests: R3_7_maintenance
 webtools.sourceediting: master
 webtools.sourceediting.tests: master
 webtools.sourceediting.xpath: master
