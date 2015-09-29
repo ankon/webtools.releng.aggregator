@@ -51,7 +51,7 @@
     <jgit-repo.url>http://download.eclipse.org/egit/updates</jgit-repo.url>
     
     <!-- No updates for mars Yet -->
-    <dtp-repo.url>http://download.eclipse.org/datatools/updates/1.12/</dtp-repo.url>
+    <!-- <dtp-repo.url>http://download.eclipse.org/datatools/updates/1.12/</dtp-repo.url> -->
     
     
     <!-- This won't be update by now until I check with Dali Team -->
