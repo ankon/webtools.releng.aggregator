@@ -458,7 +458,7 @@
         <!-- By default is integration build, but it can be overriden in CLI
              mvn clean verify -Pbuild-individual-bundles -Dwebtools-repsitory=http://....
         -->
-        <webtools.buildSite>http://download.eclipse.org/webtools/downloads/drops/R3.7.1/I-latest</webtools.buildSite>
+        <webtools.buildSite>http://download.eclipse.org/webtools/downloads/drops/R3.7.2/I-latest</webtools.buildSite>
         <webtools.repository>${webtools.buildSite}/repository</webtools.repository>
         <webtools.testsRepository>${webtools.buildSite}/repositoryunittests</webtools.testsRepository>
       </properties>
