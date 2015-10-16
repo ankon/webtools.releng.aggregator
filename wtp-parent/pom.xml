@@ -39,8 +39,6 @@
     <license-repo.url>http://download.eclipse.org/cbi/updates/license</license-repo.url>
    	
    	<!--  Dependencies moved to target file -->
-    <!--  
-    -->
    
     <!-- Mars Updates -->
     <gef-repo.url>http://download.eclipse.org/tools/gef/updates/milestones</gef-repo.url>
