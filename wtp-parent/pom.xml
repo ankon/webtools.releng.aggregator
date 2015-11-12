@@ -50,7 +50,7 @@
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.12milestones/</emf-repo.url>
     <jgit-repo.url>http://download.eclipse.org/egit/updates</jgit-repo.url>
     
-    <dtp-repo.url>http://download.eclipse.org/datatools/2.0.0.201511020902/repository/</dtp-repo.url>
+    <dtp-repo.url>http://download.eclipse.org/datatools/updates/1.13/1.13.0.201511112326/repository</dtp-repo.url>
     
     <!-- This won't be update by now until I check with Dali Team -->
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
