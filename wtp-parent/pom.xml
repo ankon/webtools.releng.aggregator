@@ -125,6 +125,16 @@
       <url>${jgit-repo.url}</url>
       <layout>p2</layout>
     </repository>
+    <repository>
+      <id>wtp-repo-patched</id>
+      <url>${wtp-patched}/repository</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>wtp-repo-tests</id>
+      <url>${wtp-patched}/repositoryunittests</url>
+      <layout>p2</layout>
+    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -274,9 +284,6 @@
                 see: https://bugs.eclipse.org/419030
             -->
             <jgit.dirtyWorkingTree>ignore</jgit.dirtyWorkingTree>
-            <sourceReferences>
-              <generate>true</generate>
-            </sourceReferences>
           </configuration>
         </plugin>
         <plugin>
