@@ -59,6 +59,8 @@
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
     <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
     <eclipselink-repo.url>http://build.eclipse.org/webtools/downloadsites/eclipseLink/eclipseLink-2.6.0/</eclipselink-repo.url>
+    
+    <wtp-patched>http://download.eclipse.org/webtools/downloads/drops/R3.7.1/R-3.7.1-20150915020029</wtp-patched>
   </properties>
 
   <repositories>

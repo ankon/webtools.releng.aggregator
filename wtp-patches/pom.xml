@@ -32,6 +32,6 @@
 		<!-- List of the components providing feature patches, like:
 		<module>../webtools.servertools</module>
 		-->
-		
+		<module>../webtools.releng</module>
 	</modules>
 </project>
