@@ -33,7 +33,7 @@
     <cbi-snapshot-repo.url>https://repo.eclipse.org/content/repositories/cbi-snapshots/</cbi-snapshot-repo.url>
     -->
     <!-- baseline comparator -->
-    <comparator.repo>http://download.eclipse.org/webtools/repository/luna</comparator.repo>
+    <comparator.repo>http://download.eclipse.org/webtools/downloads/drops/R3.7.1/R-3.7.1-20150915020029/repository/</comparator.repo>
 
     <!-- dependency repos -->
     <license-repo.url>http://download.eclipse.org/cbi/updates/license</license-repo.url>
