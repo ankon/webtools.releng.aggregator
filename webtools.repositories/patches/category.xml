@@ -2,6 +2,9 @@
 <site>
 
 	<!-- List of feature patches to be included -->
+	<feature id="org.eclipse.jpt.jpa.feature.patch" >
+        <category name="org.eclipse.webtools.patches"/>
+    </feature>
     <feature id="org.eclipse.wst.jsdt.feature.patch" >
         <category name="org.eclipse.webtools.patches"/>
     </feature>
@@ -12,6 +15,7 @@
     Example:
     <feature id="org.eclipse.wst.jsdt.feature" />
     -->
+    <feature id="org.eclipse.jpt.jpa.feature" />
     <feature id="org.eclipse.wst.jsdt.feature" />
    <!-- WTP Patch Category -->
     <category-def
