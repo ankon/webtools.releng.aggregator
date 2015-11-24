@@ -2,7 +2,7 @@ webtools.common: R3_6_3
 webtools.common.fproj: R3_6_3
 webtools.common.snippets: R3_6_3
 webtools.common.tests: R3_6_3
-webtools.dali: master
+webtools.dali: R3_4_maintenance
 webtools.ejb: R3_6_3
 webtools.javaee: R3_6_3
 webtools.javaee.tests: R3_6_3
