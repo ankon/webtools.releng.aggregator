@@ -30,6 +30,7 @@
 		<module>tests</module>
 		 -->
 		<!-- List of the components providing feature patches -->
+		<module>../webtools.dali</module>
 		<module>../webtools.jsdt</module>
 		<module>../webtools.releng</module>
 	</modules>
