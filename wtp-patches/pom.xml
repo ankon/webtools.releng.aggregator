@@ -31,5 +31,6 @@
 		 -->
 		<!-- List of the components providing feature patches -->
 		<module>../webtools.jsdt</module>
+		<module>../webtools.releng</module>
 	</modules>
 </project>
