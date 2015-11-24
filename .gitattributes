@@ -1,0 +1,2 @@
+#Text files with LF eol
+*.txt crlf=input
