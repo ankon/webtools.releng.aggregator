@@ -52,9 +52,6 @@
 [submodule "webtools.webservices.jaxws"]
 	path = webtools.webservices.jaxws
 	url = ../../webservices/webtools.webservices.jaxws
-[submodule "webtools.sourceediting.tests"]
-	path = webtools.sourceediting.tests
-	url = ../../sourceediting/webtools.sourceediting.tests
 [submodule "webtools.sourceediting.xpath"]
 	path = webtools.sourceediting.xpath
 	url = ../../sourceediting/webtools.sourceediting.xpath

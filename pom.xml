@@ -41,7 +41,6 @@
     <module>webtools.servertools.docs</module>
     <module>webtools.servertools.tests</module>
     <module>webtools.sourceediting</module>
-    <module>webtools.sourceediting.tests</module>
     <module>webtools.sourceediting.xpath</module>
     <module>webtools.sourceediting.xpath.tests</module>
     <module>webtools.sourceediting.xsl</module>
