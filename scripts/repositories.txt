@@ -15,7 +15,6 @@ webtools.servertools: master
 webtools.servertools.docs: master
 webtools.servertools.tests: master
 webtools.sourceediting: master
-webtools.sourceediting.tests: master
 webtools.sourceediting.xpath: master
 webtools.sourceediting.xpath.tests: master
 webtools.sourceediting.xsl: master
