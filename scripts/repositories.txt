@@ -14,8 +14,8 @@ webtools.releng: master
 webtools.servertools: R3_7_maintenance
 webtools.servertools.docs: R3_7_maintenance
 webtools.servertools.tests: R3_7_maintenance
-webtools.sourceediting: master
-webtools.sourceediting.tests: master
+webtools.sourceediting: R3_7_maintenance
+webtools.sourceediting.tests: R3_7_maintenance
 webtools.sourceediting.xpath: master
 webtools.sourceediting.xpath.tests: master
 webtools.sourceediting.xsl: master
