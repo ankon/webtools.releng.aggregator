@@ -24,7 +24,8 @@
     <module>wtp-parent</module>
     <module>webtools.releng</module>
     <module>webtools.repositories</module>
-  
+
+<!--  
     <module>webtools.common</module>
     <module>webtools.common.fproj</module>
     <module>webtools.common.snippets</module>
@@ -33,7 +34,7 @@
     <module>webtools.ejb</module>
     <module>webtools.javaee</module>
     <module>webtools.javaee.tests</module>
-    <!-- <module>webtools.jsdt</module> -->
+    <module>webtools.jsdt</module>
     <module>webtools.jsf</module>
     <module>webtools.jsf.docs</module>
     <module>webtools.jsf.tests</module>
@@ -49,6 +50,7 @@
     <module>webtools.webservices</module>
     <module>webtools.webservices.axis2</module>
     <module>webtools.webservices.jaxws</module>
+-->
   </modules>
   
   
