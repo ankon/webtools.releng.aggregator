@@ -33,7 +33,7 @@
     <module>webtools.ejb</module>
     <module>webtools.javaee</module>
     <module>webtools.javaee.tests</module>
-    <module>webtools.jsdt</module>
+    <!-- <module>webtools.jsdt</module> -->
     <module>webtools.jsf</module>
     <module>webtools.jsf.docs</module>
     <module>webtools.jsf.tests</module>
