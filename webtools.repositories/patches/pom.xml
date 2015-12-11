@@ -15,7 +15,7 @@
 
 	<groupId>org.eclipse.wtp</groupId>
 	<artifactId>patches</artifactId>
-	<version>3.7.0-SNAPSHOT</version>
+	<version>3.7.1-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
 	<build>
