@@ -55,7 +55,7 @@
     <!-- This won't be update by now until I check with Dali Team -->
     <emf-transaction-repo.url>http://download.eclipse.org/modeling/emf/transaction/updates/releases/</emf-transaction-repo.url>
     <emf-validation-repo.url>http://download.eclipse.org/modeling/emf/validation/updates/releases/</emf-validation-repo.url>
-    <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/milestones</graphiti-repo.url>
+    <graphiti-repo.url>http://download.eclipse.org/graphiti/updates/0.12.1/</graphiti-repo.url>
     <eclipselink-repo.url>http://build.eclipse.org/webtools/downloadsites/eclipseLink/eclipseLink-2.6.0/</eclipselink-repo.url>
   </properties>
 
