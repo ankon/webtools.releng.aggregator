@@ -42,6 +42,12 @@
     <feature id="org.eclipse.wst.jsdt_sdk.feature">
         <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
     </feature>
+    <feature id="org.eclipse.wst.jsdt.chromium.debug.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.jsdt.chromium_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
     <category-def
         name="Web Tools Platform (WTP) @buildversionid@"
         label="Web Tools Platform (WTP) @buildversionid@">

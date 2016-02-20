@@ -3,6 +3,9 @@
     <feature id="org.eclipse.wst.jsdt_tests.feature">
         <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
     </feature>
+    <feature id="org.eclipse.wst.jsdt.chromium_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
 
     <feature id="org.eclipse.wst.server_tests.feature">
         <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
