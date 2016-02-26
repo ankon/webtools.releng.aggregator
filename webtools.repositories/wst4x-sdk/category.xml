@@ -12,6 +12,9 @@
     <feature id="org.eclipse.wst.xsl_sdk.feature">
         <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
     </feature>
+    <feature id="org.eclipse.wst.json_sdk.feature">
+        <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
+    </feature>
     <feature id="org.eclipse.wst.server_adapters.sdk.feature">
         <category name="Web Tools Platform SDK (WTP SDK) @buildversionid@"/>
     </feature>
@@ -28,6 +31,9 @@
         <category name="Web Tools Platform (WTP) @buildversionid@"/>
     </feature>
     <feature id="org.eclipse.wst.xml_ui.feature">
+        <category name="Web Tools Platform (WTP) @buildversionid@"/>
+    </feature>
+    <feature id="org.eclipse.wst.json_ui.feature">
         <category name="Web Tools Platform (WTP) @buildversionid@"/>
     </feature>
     <feature id="org.eclipse.wst.jsdt.feature">
