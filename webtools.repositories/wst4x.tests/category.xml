@@ -25,6 +25,9 @@
     <feature id="org.eclipse.wst.xsl_tests.feature">
         <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
     </feature>
+    <feature id="org.eclipse.wst.json_tests.feature">
+        <category name="Web Tools Platform Tests (WTP Tests) @buildversionid@"/>
+    </feature>
     <category-def
         name="Web Tools Platform Tests (WTP Tests) @buildversionid@"
         label="Web Tools Platform Tests (WTP Tests) @buildversionid@">
