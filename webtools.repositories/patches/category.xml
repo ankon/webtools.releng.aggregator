@@ -2,7 +2,7 @@
 <site>
 
 	<!-- List of feature patches to be included -->
-    <feature id="org.eclipse.wst.server_core.feature.patch" >
+    <feature id="org.eclipse.jpt.jpadaigrameditor.feature.patch" >
         <category name="org.eclipse.webtools.patches"/>
     </feature>
    
@@ -12,6 +12,7 @@
     Example:
     <feature id="org.eclipse.wst.server_core.feature" />
     -->
+    <feature id="org.eclipse.jpt.jpadiagrameditor.feature" />
    <!-- WTP Patch Category -->
     <category-def
         name = "org.eclipse.webtools.patches"
