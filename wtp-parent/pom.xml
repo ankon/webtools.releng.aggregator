@@ -45,8 +45,8 @@
     <!-- Mars Updates -->
     <gef-repo.url>https://hudson.eclipse.org/gef/job/gef-master/lastSuccessfulBuild/artifact/update-site/</gef-repo.url>
 
-    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.6milestones/S-4.6M6-201603170200</platform-repo.url>
-    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/S20160308060251/repository/</orbit-repo.url>
+    <platform-repo.url>http://download.eclipse.org/eclipse/updates/4.6milestones/S-4.6M7-201604280800</platform-repo.url>
+    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/I20160421150943/repository/</orbit-repo.url>
     <jetty-repo.url>http://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.3.5.v20151012</jetty-repo.url>
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.12milestones/</emf-repo.url>
     <jgit-repo.url>http://download.eclipse.org/egit/updates</jgit-repo.url>
